@@ -2,9 +2,7 @@
 Balance of Power: The 1990 Edition
 
 ## Overview
-This is a port of the classic Cold War geopolitical strategy game 'Balance of Power: The 1990 Edition', written by Chris Crawford and released in 1988 for the Macintosh.  It was a follow-up to the original 'Balance of Power' game, which was released in 1985.  The game has been ported from Macintosh Lightspeed Pascal to Free Pascal so that it can be compiled and run on a modern operating system without the need for any emulators or virtual environments:
-
-![BOP 1990](http://www.blarworld.net/bop1990.png
+This is a port of the classic Cold War geopolitical strategy game 'Balance of Power: The 1990 Edition', written by Chris Crawford and released in 1988 for the Macintosh.  It was a follow-up to the original 'Balance of Power' game, which was released in 1985.  The game has been ported from Macintosh Lightspeed Pascal to Free Pascal so that it can be compiled and run on a modern operating system without the need for any emulators or virtual environments.
 
 For more information on the game, it's history, development, and reception when it was originally released, please see the Wikipedia page: https://en.wikipedia.org/wiki/Balance_of_Power_(video_game)
 
