@@ -1,0 +1,111 @@
+object AboutForm: TAboutForm
+  Left = 743
+  Height = 255
+  Top = 274
+  Width = 234
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'About'
+  ClientHeight = 255
+  ClientWidth = 234
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 0
+    Height = 15
+    Top = 16
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Balance of Power'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 0
+    Height = 15
+    Top = 48
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'by Chris Crawford'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 0
+    Height = 15
+    Top = 64
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Copyright (c) 1988 Chris Crawford'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 0
+    Height = 15
+    Top = 80
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'All Rights Reserved'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 0
+    Height = 15
+    Top = 128
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Free Pascal port by Ben Larson'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 0
+    Height = 15
+    Top = 144
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Version 0.1'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button1: TButton
+    Left = 88
+    Height = 25
+    Top = 200
+    Width = 64
+    Caption = 'OK'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Label6: TLabel
+    Left = 0
+    Height = 15
+    Top = 96
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Version 2.08'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 0
+    Height = 15
+    Top = 160
+    Width = 234
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'https://www.blarworld.net'
+    ParentColor = False
+    ParentFont = False
+  end
+end

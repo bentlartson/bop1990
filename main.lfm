@@ -1,0 +1,795 @@
+object MainForm: TMainForm
+  Left = 609
+  Height = 537
+  Top = 189
+  Width = 768
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Balance of Power: The 1990 Edition'
+  ClientHeight = 517
+  ClientWidth = 768
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowHint = True
+  LCLVersion = '2.2.6.0'
+  Scaled = False
+  object PaintBox1: TPaintBox
+    Left = 0
+    Height = 517
+    Top = 0
+    Width = 768
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+    OnClick = PaintBox1Click
+    OnPaint = PaintBox1Paint
+  end
+  object EndButton: TButton
+    Left = 358
+    Height = 25
+    Top = 480
+    Width = 51
+    Caption = 'End'
+    OnClick = EndButtonClick
+    TabOrder = 0
+    Visible = False
+  end
+  object OptionsLabel: TLabel
+    Left = 304
+    Height = 50
+    Top = 32
+    Width = 154
+    Caption = 'OPTIONS'
+    Font.Height = -37
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 158
+    Height = 17
+    Top = 96
+    Width = 449
+    Caption = 'Your goal in this game is to increase the geopolitical prestige of your chosen'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 158
+    Height = 17
+    Top = 120
+    Width = 456
+    Caption = 'superpower while avoiding a nuclear war.  The four levels provide increasingly'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 158
+    Height = 17
+    Top = 144
+    Width = 411
+    Caption = 'complex and accurate representations of the real world of geopolitics.'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 158
+    Height = 17
+    Top = 168
+    Width = 453
+    Caption = 'People who play this game without reading the manual are wasting their time.'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object LevelRadioGroup: TRadioGroup
+    Left = 102
+    Height = 136
+    Top = 256
+    Width = 145
+    AutoFill = True
+    Caption = 'Levels of Play'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 114
+    ClientWidth = 141
+    Font.Height = -13
+    ItemIndex = 0
+    Items.Strings = (
+      'Beginner'
+      'Intermediate'
+      'Expert'
+      'Multipolar'
+    )
+    ParentFont = False
+    TabOrder = 1
+  end
+  object SideRadioGroup: TRadioGroup
+    Left = 310
+    Height = 80
+    Top = 256
+    Width = 145
+    AutoFill = True
+    Caption = 'Side to Play'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 58
+    ClientWidth = 141
+    Font.Height = -13
+    ItemIndex = 0
+    Items.Strings = (
+      'USA'
+      'USSR'
+    )
+    ParentFont = False
+    TabOrder = 2
+  end
+  object PlayersRadioGroup: TRadioGroup
+    Left = 518
+    Height = 80
+    Top = 256
+    Width = 145
+    AutoFill = True
+    Caption = 'Number of Players'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 58
+    ClientWidth = 141
+    Enabled = False
+    Font.Height = -13
+    ItemIndex = 0
+    Items.Strings = (
+      'One Player'
+      'Two Players'
+    )
+    ParentFont = False
+    TabOrder = 3
+  end
+  object StartButton: TButton
+    Left = 326
+    Height = 33
+    Top = 408
+    Width = 115
+    Caption = 'Start Game'
+    OnClick = StartButtonClick
+    TabOrder = 4
+  end
+  object TitleLabel: TLabel
+    Left = 128
+    Height = 52
+    Top = 64
+    Width = 512
+    AutoSize = False
+    Caption = 'Balance of Power'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -53
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object TitleLabel2: TLabel
+    Left = 132
+    Height = 59
+    Top = 64
+    Width = 512
+    AutoSize = False
+    Caption = 'Balance of Power'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -53
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object NewGameButton: TButton
+    Left = 80
+    Height = 25
+    Top = 432
+    Width = 144
+    Caption = 'New Game'
+    OnClick = NewGameButtonClick
+    TabOrder = 5
+  end
+  object LoadOldGameButton: TButton
+    Left = 544
+    Height = 25
+    Top = 432
+    Width = 144
+    Caption = 'Load Old Game'
+    OnClick = LoadOldGameButtonClick
+    TabOrder = 6
+  end
+  object MainMenu1: TMainMenu
+    object GameMenuItem: TMenuItem
+      Caption = '&Game'
+      object ScoreMenuItem: TMenuItem
+        Caption = 'Score'
+        OnClick = ScoreMenuItemClick
+      end
+      object NextTurnMenuItem: TMenuItem
+        Caption = 'Next Turn'
+        OnClick = NextTurnMenuItemClick
+      end
+      object UndoLastTurnMenuItem: TMenuItem
+        Caption = 'Undo Last Turn'
+        OnClick = UndoLastTurnMenuItemClick
+      end
+      object ChangeSidesMenuItem: TMenuItem
+        Caption = 'Change Sides'
+      end
+      object Separator2: TMenuItem
+        Caption = '-'
+      end
+      object QuitGameMenuITem: TMenuItem
+        Caption = 'Quit Game'
+        OnClick = QuitGameMenuITemClick
+      end
+      object Separator3: TMenuItem
+        Caption = '-'
+      end
+      object AboutBOPMenuItem: TMenuItem
+        Caption = 'About BOP'
+        OnClick = AboutBOPMenuItemClick
+      end
+    end
+    object CountriesMenuItem: TMenuItem
+      Caption = '&Countries'
+      object SpheresOfInfluenceMenuItem: TMenuItem
+        Caption = 'Spheres of Influence'
+        OnClick = SpheresOfInfluenceMenuItemClick
+      end
+      object MajorEventsMenuItem: TMenuItem
+        Caption = 'Major Events'
+        OnClick = MajorEventsMenuItemClick
+      end
+      object PrestigeValueMenuItem: TMenuItem
+        Caption = 'Prestige Value'
+        OnClick = PrestigeValueMenuItemClick
+      end
+      object InsurgencyMenuItem: TMenuItem
+        Caption = 'Insurgency'
+        OnClick = InsurgencyMenuItemClick
+      end
+      object CoupDetatMenuItem: TMenuItem
+        Caption = 'Coup d''etat?'
+        OnClick = CoupDetatMenuItemClick
+      end
+      object FinlandUSAMenuItem: TMenuItem
+        Caption = 'Finland - USA?'
+        OnClick = FinlandUSAMenuItemClick
+      end
+      object FinlandUSSRMenuItem: TMenuItem
+        Caption = 'Finland - USSR?'
+        OnClick = FinlandUSSRMenuItemClick
+      end
+      object CountriesAtWarMenuItem: TMenuItem
+        Caption = 'Countries at War'
+        OnClick = CountriesAtWarMenuItemClick
+      end
+    end
+    object RelationsMenuItem: TMenuItem
+      Caption = '&Relations'
+      object DiplomaticRelationshipsMenuItem: TMenuItem
+        Caption = 'Diplomatic Relationships'
+        OnClick = DiplomaticRelationshipsMenuItemClick
+      end
+      object MilitaryAidMenuItem: TMenuItem
+        Caption = 'Military Aid'
+        OnClick = MilitaryAidMenuItemClick
+      end
+      object AidToInsurgentsMenuItem: TMenuItem
+        Caption = 'Aid to Insurgents'
+        OnClick = AidToInsurgentsMenuItemClick
+      end
+      object InterventionsForGovtMenuItem: TMenuItem
+        Caption = 'Interventions for Govt'
+        OnClick = InterventionsForGovtMenuItemClick
+      end
+      object InterventionsForRebelsMenuItem: TMenuItem
+        Caption = 'Interventions for Rebels'
+        OnClick = InterventionsForRebelsMenuItemClick
+      end
+      object EconomicAidMenuItem: TMenuItem
+        Caption = 'Economic Aid'
+        OnClick = EconomicAidMenuItemClick
+      end
+      object DestabilizationMenuItem: TMenuItem
+        Caption = 'Destabilization'
+        OnClick = DestabilizationMenuItemClick
+      end
+      object TreatiesMenuItem: TMenuItem
+        Caption = 'Treaties'
+        OnClick = TreatiesMenuItemClick
+      end
+      object DiplomaticPressureMenuItem: TMenuItem
+        Caption = 'Diplomatic Pressure'
+        OnClick = DiplomaticPressureMenuItemClick
+      end
+      object TradePolicyMenuItem: TMenuItem
+        Caption = 'Trade Policy'
+        OnClick = TradePolicyMenuItemClick
+      end
+      object AtWarWithMenuItem: TMenuItem
+        Caption = 'At War With'
+        OnClick = AtWarWithMenuItemClick
+      end
+      object Separator4: TMenuItem
+        Caption = '-'
+      end
+      object GoingOutMenuItem: TMenuItem
+        Caption = 'Going Out'
+        Checked = True
+        OnClick = GoingOutMenuItemClick
+      end
+      object GoingInMenuItem: TMenuItem
+        Caption = 'Going In'
+        OnClick = GoingInMenuItemClick
+      end
+    end
+    object MakePoliciesMenuItem: TMenuItem
+      Caption = 'Ma&ke Policies'
+      object MilitaryAidPolicyMenuItem: TMenuItem
+        Caption = 'Military Aid'
+        OnClick = MilitaryAidPolicyMenuItemClick
+      end
+      object AidToInsurgentsPolicyMenuITem: TMenuItem
+        Caption = 'Aid to Insurgents'
+        OnClick = AidToInsurgentsPolicyMenuITemClick
+      end
+      object InterveneForGovtMenuItem: TMenuItem
+        Caption = 'Intervene for Govt'
+        OnClick = InterveneForGovtMenuItemClick
+      end
+      object InterveneForRebelsMenuItem: TMenuItem
+        Caption = 'Intervene for Rebels'
+        OnClick = InterveneForRebelsMenuItemClick
+      end
+      object EconomicAidPolicyMenuItem: TMenuItem
+        Caption = 'Economic Aid'
+        OnClick = EconomicAidPolicyMenuItemClick
+      end
+      object DestabilizeMenuItem: TMenuItem
+        Caption = 'Destabilize'
+        OnClick = DestabilizeMenuItemClick
+      end
+      object TreatyMenuItem: TMenuItem
+        Caption = 'Treaty'
+        OnClick = TreatyMenuItemClick
+      end
+      object DiplomaticPressurePolicyMenuItem: TMenuItem
+        Caption = 'Diplomatic Pressure'
+        OnClick = DiplomaticPressurePolicyMenuItemClick
+      end
+      object TradePolicyPolicyMenuItem: TMenuItem
+        Caption = 'Trade Policy'
+        OnClick = TradePolicyPolicyMenuItemClick
+      end
+    end
+    object EventsMenuItem: TMenuItem
+      Caption = 'E&vents'
+      object NewspaperMenuItem: TMenuItem
+        Caption = 'Newspaper'
+        OnClick = NewspaperMenuItemClick
+      end
+      object USSRActionsMenuItem: TMenuItem
+        Caption = 'USSR actions'
+        OnClick = USSRActionsMenuItemClick
+      end
+      object USSROtherMenuItem: TMenuItem
+        Caption = 'USSR other'
+        OnClick = USSROtherMenuItemClick
+      end
+      object USAActionsMenuItem: TMenuItem
+        Caption = 'USA actions'
+        OnClick = USAActionsMenuItemClick
+      end
+      object USAOtherMenuItem: TMenuItem
+        Caption = 'USA other'
+        OnClick = USAOtherMenuItemClick
+      end
+      object MinorCountryNewsMenuItem: TMenuItem
+        Caption = 'Minor Country news'
+        OnClick = MinorCountryNewsMenuItemClick
+      end
+    end
+    object BriefingMenuItem: TMenuItem
+      Caption = '&Briefing'
+      object CloseupMenuItem: TMenuItem
+        Caption = 'CloseUp'
+        OnClick = CloseupMenuItemClick
+      end
+      object BackgroundMenuItem: TMenuItem
+        Caption = 'Background'
+      end
+      object HistoryMenuItem: TMenuItem
+        Caption = 'History'
+        OnClick = HistoryMenuItemClick
+      end
+    end
+    object NorthAmericaMenuItem: TMenuItem
+      Caption = '&N America'
+      object CanadaMenuItem: TMenuItem
+        Caption = 'Canada'
+        OnClick = CanadaMenuItemClick
+      end
+      object CostaRicaMenuItem: TMenuItem
+        Caption = 'Costa Rica'
+        OnClick = CostaRicaMenuItemClick
+      end
+      object CubaMenuItem: TMenuItem
+        Caption = 'Cuba'
+        OnClick = CubaMenuItemClick
+      end
+      object ElSalvadorMenuItem: TMenuItem
+        Caption = 'El Salvador'
+        OnClick = ElSalvadorMenuItemClick
+      end
+      object GuatemalaMenuItem: TMenuItem
+        Caption = 'Guatamala'
+        OnClick = GuatemalaMenuItemClick
+      end
+      object HondurasMenuItem: TMenuItem
+        Caption = 'Honduras'
+        OnClick = HondurasMenuItemClick
+      end
+      object MexicoMenuItem: TMenuItem
+        Caption = 'Mexico'
+        OnClick = MexicoMenuItemClick
+      end
+      object NicaraguaMenuItem: TMenuItem
+        Caption = 'Nicaragua'
+        OnClick = NicaraguaMenuItemClick
+      end
+      object PanamaMenuItem: TMenuItem
+        Caption = 'Panama'
+        OnClick = PanamaMenuItemClick
+      end
+      object USAMenuItem: TMenuItem
+        Caption = 'USA'
+        ShortCutKey2 = 85
+        OnClick = USAMenuItemClick
+      end
+    end
+    object SouthAmericaMenuItem: TMenuItem
+      Caption = '&S America'
+      object ArgentinaMenuItem: TMenuItem
+        Caption = 'Argentina'
+        OnClick = ArgentinaMenuItemClick
+      end
+      object BoliviaMenuItem: TMenuItem
+        Caption = 'Bolivia'
+        OnClick = BoliviaMenuItemClick
+      end
+      object BrazilMenuItem: TMenuItem
+        Caption = 'Brazil'
+        OnClick = BrazilMenuItemClick
+      end
+      object ChileMenuItem: TMenuItem
+        Caption = 'Chile'
+        OnClick = ChileMenuItemClick
+      end
+      object ColombiaMenuItem: TMenuItem
+        Caption = 'Colombia'
+        OnClick = ColombiaMenuItemClick
+      end
+      object PeruMenuItem: TMenuItem
+        Caption = 'Peru'
+        OnClick = PeruMenuItemClick
+      end
+      object VenezuelaMenuItem: TMenuItem
+        Caption = 'Venezuela'
+        OnClick = VenezuelaMenuItemClick
+      end
+    end
+    object EuropeMenuItem: TMenuItem
+      Caption = '&Europe'
+      object BritainMenuItem: TMenuItem
+        Caption = 'Britain'
+        OnClick = BritainMenuItemClick
+      end
+      object FranceMenuItem: TMenuItem
+        Caption = 'France'
+        OnClick = FranceMenuItemClick
+      end
+      object ItalyMenuItem: TMenuItem
+        Caption = 'Italy'
+        OnClick = ItalyMenuItemClick
+      end
+      object SpainMenuItem: TMenuItem
+        Caption = 'Spain'
+        OnClick = SpainMenuItemClick
+      end
+      object SwedenMenuItem: TMenuItem
+        Caption = 'Sweden'
+        OnClick = SwedenMenuItemClick
+      end
+      object WGermanyMenuItem: TMenuItem
+        Caption = 'W. Germany'
+        OnClick = WGermanyMenuItemClick
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object CzechoslovakiaMenuItem: TMenuItem
+        Caption = 'Czechoslovakia'
+        OnClick = CzechoslovakiaMenuItemClick
+      end
+      object EGermanyMenuItem: TMenuItem
+        Caption = 'E. Germany'
+        OnClick = EGermanyMenuItemClick
+      end
+      object GreeceMenuItem: TMenuItem
+        Caption = 'Greece'
+        OnClick = GreeceMenuItemClick
+      end
+      object PolandMenuItem: TMenuItem
+        Caption = 'Poland'
+        OnClick = PolandMenuItemClick
+      end
+      object RomaniaMenuItem: TMenuItem
+        Caption = 'Romania'
+        OnClick = RomaniaMenuItemClick
+      end
+      object USSRMenuItem: TMenuItem
+        Caption = 'USSR'
+        OnClick = USSRMenuItemClick
+      end
+      object YugoslaviaMenuItem: TMenuItem
+        Caption = 'Yugoslavia'
+        OnClick = YugoslaviaMenuItemClick
+      end
+    end
+    object AfricaMenuItem: TMenuItem
+      Caption = '&Africa'
+      object AlgeriaMenuItem: TMenuItem
+        Caption = 'Algeria'
+        OnClick = AlgeriaMenuItemClick
+      end
+      object AngolaMenuItem: TMenuItem
+        Caption = 'Angola'
+        OnClick = AngolaMenuItemClick
+      end
+      object BotswanaMenuItem: TMenuItem
+        Caption = 'Botswana'
+        OnClick = BotswanaMenuItemClick
+      end
+      object BurkinaFasoMenuItem: TMenuItem
+        Caption = 'Burkina Faso'
+        OnClick = BurkinaFasoMenuItemClick
+      end
+      object CameroonMenuItem: TMenuItem
+        Caption = 'Cameroon'
+        OnClick = CameroonMenuItemClick
+      end
+      object CentralAfricaMenuItem: TMenuItem
+        Caption = 'Central Africa'
+        OnClick = CentralAfricaMenuItemClick
+      end
+      object ChadMenuItem: TMenuItem
+        Caption = 'Chad'
+        OnClick = ChadMenuItemClick
+      end
+      object CongoMenuItem: TMenuItem
+        Caption = 'Congo'
+        OnClick = CongoMenuItemClick
+      end
+      object EgyptMenuItem: TMenuItem
+        Caption = 'Egypt'
+        OnClick = EgyptMenuItemClick
+      end
+      object EthiopiaMenuItem: TMenuItem
+        Caption = 'Ethiopia'
+        OnClick = EthiopiaMenuItemClick
+      end
+      object GhanaMenuItem: TMenuItem
+        Caption = 'Ghana'
+        OnClick = GhanaMenuItemClick
+      end
+      object GuineaMenuItem: TMenuItem
+        Caption = 'Guinea'
+        OnClick = GuineaMenuItemClick
+      end
+      object IvoryCoastMenuItem: TMenuItem
+        Caption = 'Ivory Coast'
+        OnClick = IvoryCoastMenuItemClick
+      end
+      object KenyaMenuItem: TMenuItem
+        Caption = 'Kenya'
+        OnClick = KenyaMenuItemClick
+      end
+      object LibyaMenuItem: TMenuItem
+        Caption = 'Libya'
+        OnClick = LibyaMenuItemClick
+      end
+      object MaliMenuItem: TMenuItem
+        Caption = 'Mali'
+        OnClick = MaliMenuItemClick
+      end
+      object MauritaniaMenuItem: TMenuItem
+        Caption = 'Mauritania'
+        OnClick = MauritaniaMenuItemClick
+      end
+      object MoroccoMenuItem: TMenuItem
+        Caption = 'Morocco'
+        OnClick = MoroccoMenuItemClick
+      end
+      object MozambiqueMenuItem: TMenuItem
+        Caption = 'Mozambique'
+        OnClick = MozambiqueMenuItemClick
+      end
+      object NigerMenuItem: TMenuItem
+        Caption = 'Niger'
+        OnClick = NigerMenuItemClick
+      end
+      object NigeriaMenuItem: TMenuItem
+        Caption = 'Nigeria'
+        OnClick = NigeriaMenuItemClick
+      end
+      object SouthAfricaMenuItem: TMenuItem
+        Caption = 'South Africa'
+        OnClick = SouthAfricaMenuItemClick
+      end
+      object SudanMenuItem: TMenuItem
+        Caption = 'Sudan'
+        OnClick = SudanMenuItemClick
+      end
+      object TanzaniaMenuItem: TMenuItem
+        Caption = 'Tanzania'
+        OnClick = TanzaniaMenuItemClick
+      end
+      object TunisiaMenuItem: TMenuItem
+        Caption = 'Tunisia'
+        OnClick = TunisiaMenuItemClick
+      end
+      object ZaireMenuItem: TMenuItem
+        Caption = 'Zaire'
+        OnClick = ZaireMenuItemClick
+      end
+      object ZambiaMenuItem: TMenuItem
+        Caption = 'Zambia'
+        OnClick = ZambiaMenuItemClick
+      end
+      object ZimbabweMenuItem: TMenuItem
+        Caption = 'Zimbabwe'
+        OnClick = ZimbabweMenuItemClick
+      end
+    end
+    object MidEastMenuItem: TMenuItem
+      Caption = '&Mid East'
+      object AfghanistanMenuItem: TMenuItem
+        Caption = 'Afghanistan'
+        OnClick = AfghanistanMenuItemClick
+      end
+      object IsraelMenuItem: TMenuItem
+        Caption = 'Israel'
+        OnClick = IsraelMenuItemClick
+      end
+      object IranMenuItem: TMenuItem
+        Caption = 'Iran'
+        OnClick = IranMenuItemClick
+      end
+      object IraqMenuItem: TMenuItem
+        Caption = 'Iraq'
+        OnClick = IraqMenuItemClick
+      end
+      object JordanMenuItem: TMenuItem
+        Caption = 'Jordan'
+        OnClick = JordanMenuItemClick
+      end
+      object LebanonMenuItem: TMenuItem
+        Caption = 'Lebanon'
+        OnClick = LebanonMenuItemClick
+      end
+      object PakistanMenuItem: TMenuItem
+        Caption = 'Pakistan'
+        OnClick = PakistanMenuItemClick
+      end
+      object SaudiArabiaMenuItem: TMenuItem
+        Caption = 'Saudi Arabia'
+        OnClick = SaudiArabiaMenuItemClick
+      end
+      object SyriaMenuItem: TMenuItem
+        Caption = 'Syria'
+        OnClick = SyriaMenuItemClick
+      end
+      object TurkeyMenuItem: TMenuItem
+        Caption = 'Turkey'
+        OnClick = TurkeyMenuItemClick
+      end
+    end
+    object FarEastMenuItem: TMenuItem
+      Caption = '&Far East'
+      object BurmaMenuItem: TMenuItem
+        Caption = 'Burma'
+        OnClick = BurmaMenuItemClick
+      end
+      object ChinaMenuItem: TMenuItem
+        Caption = 'China'
+        OnClick = ChinaMenuItemClick
+      end
+      object IndiaMenuItem: TMenuItem
+        Caption = 'India'
+        OnClick = IndiaMenuItemClick
+      end
+      object NKoreaMenuItem: TMenuItem
+        Caption = 'N. Korea'
+        OnClick = NKoreaMenuItemClick
+      end
+      object SKoreaMenuItem: TMenuItem
+        Caption = 'S. Korea'
+        OnClick = SKoreaMenuItemClick
+      end
+      object ThailandMenuItem: TMenuItem
+        Caption = 'Thailand'
+        OnClick = ThailandMenuItemClick
+      end
+      object VietnamMenuItem: TMenuItem
+        Caption = 'Vietnam'
+        OnClick = VietnamMenuItemClick
+      end
+    end
+    object PacificMenuItem: TMenuItem
+      Caption = '&Pacific'
+      object AustraliaMenuItem: TMenuItem
+        Caption = 'Australia'
+        OnClick = AustraliaMenuItemClick
+      end
+      object IndonesiaMenuItem: TMenuItem
+        Caption = 'Indonesia'
+        OnClick = IndonesiaMenuItemClick
+      end
+      object JapanMenuItem: TMenuItem
+        Caption = 'Japan'
+        OnClick = JapanMenuItemClick
+      end
+      object PhilippinesMenuItem: TMenuItem
+        Caption = 'Philippines'
+        OnClick = PhilippinesMenuItemClick
+      end
+      object TaiwanMenuItem: TMenuItem
+        Caption = 'Taiwan'
+        OnClick = TaiwanMenuItemClick
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Title = 'Specify Save File'
+    FileName = 'savegame.bop'
+    Filter = 'Saved Games|*.bop'
+    Left = 24
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Load Saved Game'
+    Filter = 'Saved Games|*.bop'
+    Left = 48
+  end
+  object TitleScreenTimer: TTimer
+    Interval = 2500
+    OnTimer = OnTimer
+    Left = 72
+  end
+end

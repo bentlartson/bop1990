@@ -1,0 +1,135 @@
+object ScoreForm: TScoreForm
+  Left = 860
+  Height = 437
+  Top = 292
+  Width = 292
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Score'
+  ClientHeight = 437
+  ClientWidth = 292
+  OnCreate = FormCreate
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.6.0'
+  object LevelLabel: TLabel
+    Left = 0
+    Height = 15
+    Top = 32
+    Width = 292
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'LevelLabel'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SubHeaderLabel: TLabel
+    Left = 0
+    Height = 15
+    Top = 56
+    Width = 292
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'SubHeaderLabel'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ScoresLabel: TLabel
+    Left = 76
+    Height = 15
+    Top = 72
+    Width = 66
+    Caption = 'Your scores:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USALabel: TLabel
+    Left = 128
+    Height = 15
+    Top = 96
+    Width = 24
+    Caption = 'USA'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRLabel: TLabel
+    Left = 200
+    Height = 15
+    Top = 96
+    Width = 31
+    Caption = 'USSR'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object GainThisYearLabel: TLabel
+    Left = 16
+    Height = 15
+    Top = 120
+    Width = 76
+    Caption = 'gain this year:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object GainToDateLabel: TLabel
+    Left = 16
+    Height = 15
+    Top = 144
+    Width = 69
+    Caption = 'gain to date:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAGainY: TLabel
+    Left = 128
+    Height = 15
+    Top = 120
+    Width = 56
+    Caption = 'USAGainY'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAGainTD: TLabel
+    Left = 128
+    Height = 15
+    Top = 144
+    Width = 65
+    Caption = 'USAGainTD'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRGainY: TLabel
+    Left = 200
+    Height = 15
+    Top = 120
+    Width = 63
+    Caption = 'USSRGainY'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRGainTD: TLabel
+    Left = 200
+    Height = 15
+    Top = 144
+    Width = 72
+    Caption = 'USSRGainTD'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object HistoryPaintBox: TPaintBox
+    Left = 0
+    Height = 264
+    Top = 176
+    Width = 294
+    OnPaint = HistoryPaintBoxPaint
+  end
+end

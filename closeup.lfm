@@ -1,0 +1,555 @@
+object CloseupForm: TCloseupForm
+  Left = 109
+  Height = 408
+  Top = 236
+  Width = 637
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Closeup'
+  ClientHeight = 408
+  ClientWidth = 637
+  Font.Name = 'Courier'
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.6.0'
+  object RelationshipLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 32
+    Width = 118
+    Caption = 'Relationship:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object PrestigeLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 48
+    Width = 136
+    Caption = 'Prestige Value:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object MilitaryAidLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 64
+    Width = 118
+    Caption = 'Military Aid:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object InsurgencyAidLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 80
+    Width = 136
+    Caption = 'Insurgency Aid:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object InterveneGovtLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 96
+    Width = 145
+    Caption = 'Intervene--govt:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object InterveneRebsLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 112
+    Width = 145
+    Caption = 'Intervene--rebs:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EconomicAidLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 128
+    Width = 118
+    Caption = 'Economic Aid:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DestabilizationLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 144
+    Width = 145
+    Caption = 'Destabilization:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USALabel: TLabel
+    Left = 176
+    Height = 13
+    Top = 16
+    Width = 73
+    Caption = 'USALabel'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRLabel: TLabel
+    Left = 352
+    Height = 13
+    Top = 16
+    Width = 82
+    Caption = 'USSRLabel'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USARelationship: TLabel
+    Left = 184
+    Height = 13
+    Top = 32
+    Width = 120
+    Caption = 'USARelationship'
+    ParentColor = False
+  end
+  object USAPrestige: TLabel
+    Left = 184
+    Height = 13
+    Top = 48
+    Width = 88
+    Caption = 'USAPrestige'
+    ParentColor = False
+  end
+  object USAMilitaryAid: TLabel
+    Left = 168
+    Height = 13
+    Top = 64
+    Width = 112
+    Caption = 'USAMilitaryAid'
+    ParentColor = False
+  end
+  object USAInsurgencyAid: TLabel
+    Left = 168
+    Height = 13
+    Top = 80
+    Width = 128
+    Caption = 'USAInsurgencyAid'
+    ParentColor = False
+  end
+  object USAInterveneGovt: TLabel
+    Left = 168
+    Height = 13
+    Top = 96
+    Width = 128
+    Caption = 'USAInterveneGovt'
+    ParentColor = False
+  end
+  object USAInterveneReb: TLabel
+    Left = 168
+    Height = 13
+    Top = 112
+    Width = 120
+    Caption = 'USAInterveneReb'
+    ParentColor = False
+  end
+  object USAEconomicAid: TLabel
+    Left = 168
+    Height = 13
+    Top = 128
+    Width = 112
+    Caption = 'USAEconomicAid'
+    ParentColor = False
+  end
+  object USADestabilization: TLabel
+    Left = 168
+    Height = 13
+    Top = 144
+    Width = 144
+    Caption = 'USADestabilization'
+    ParentColor = False
+  end
+  object USSRRelationship: TLabel
+    Left = 360
+    Height = 13
+    Top = 32
+    Width = 128
+    Caption = 'USSRRelationship'
+    ParentColor = False
+  end
+  object USSRPrestige: TLabel
+    Left = 360
+    Height = 13
+    Top = 48
+    Width = 96
+    Caption = 'USSRPrestige'
+    ParentColor = False
+  end
+  object USSRMilitaryAid: TLabel
+    Left = 344
+    Height = 13
+    Top = 64
+    Width = 120
+    Caption = 'USSRMilitaryAid'
+    ParentColor = False
+  end
+  object USSRInsurgencyAid: TLabel
+    Left = 344
+    Height = 13
+    Top = 80
+    Width = 136
+    Caption = 'USSRInsurgencyAid'
+    ParentColor = False
+  end
+  object USSRInterveneGovt: TLabel
+    Left = 344
+    Height = 13
+    Top = 96
+    Width = 136
+    Caption = 'USSRInterveneGovt'
+    ParentColor = False
+  end
+  object USSRInterveneReb: TLabel
+    Left = 344
+    Height = 13
+    Top = 112
+    Width = 128
+    Caption = 'USSRInterveneReb'
+    ParentColor = False
+  end
+  object USSREconomicAid: TLabel
+    Left = 344
+    Height = 13
+    Top = 128
+    Width = 120
+    Caption = 'USSREconomicAid'
+    ParentColor = False
+  end
+  object USSRDestabilization: TLabel
+    Left = 344
+    Height = 13
+    Top = 144
+    Width = 152
+    Caption = 'USSRDestabilization'
+    ParentColor = False
+  end
+  object ValuesLabel: TLabel
+    Left = 176
+    Height = 13
+    Top = 224
+    Width = 370
+    Caption = 'Values in {brackets} are maximum possible'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object PrestigeMax: TLabel
+    Left = 512
+    Height = 13
+    Top = 48
+    Width = 88
+    Caption = 'PrestigeMax'
+    ParentColor = False
+  end
+  object InsurgencyLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 264
+    Width = 100
+    Caption = 'Insurgency:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object GovtPhilosophyLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 280
+    Width = 145
+    Caption = 'Govt Philosophy:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object MilitaryPowerLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 296
+    Width = 136
+    Caption = 'Military Power:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SphereOfInfluenceLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 312
+    Width = 181
+    Caption = 'Sphere of Influence:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object GovtStabilityLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 328
+    Width = 136
+    Caption = 'Govt Stability:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object CapitalLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 344
+    Width = 73
+    Caption = 'Capital:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object InsurgencyGroupLabel: TLabel
+    Left = 272
+    Height = 13
+    Top = 344
+    Width = 100
+    Caption = 'Insurgency:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object InsurgencyValueLabel: TLabel
+    Left = 128
+    Height = 13
+    Top = 264
+    Width = 160
+    Caption = 'InsurgencyValueLabel'
+    ParentColor = False
+  end
+  object GovtPhilosophyValueLabel: TLabel
+    Left = 176
+    Height = 13
+    Top = 280
+    Width = 192
+    Caption = 'GovtPhilosophyValueLabel'
+    ParentColor = False
+  end
+  object MilitaryPowerValueLabel: TLabel
+    Left = 168
+    Height = 13
+    Top = 296
+    Width = 184
+    Caption = 'MilitaryPowerValueLabel'
+    ParentColor = False
+  end
+  object SphereOfInfluenceValueLabel: TLabel
+    Left = 208
+    Height = 13
+    Top = 312
+    Width = 216
+    Caption = 'SphereOfInfluenceValueLabel'
+    ParentColor = False
+  end
+  object GovtStabilityValueLabel: TLabel
+    Left = 168
+    Height = 13
+    Top = 328
+    Width = 184
+    Caption = 'GovtStabilityValueLabel'
+    ParentColor = False
+  end
+  object CapitalValueLabel: TLabel
+    Left = 88
+    Height = 13
+    Top = 344
+    Width = 136
+    Caption = 'CapitalValueLabel'
+    ParentColor = False
+  end
+  object InsurgencyGroupValueLabel: TLabel
+    Left = 376
+    Height = 13
+    Top = 344
+    Width = 200
+    Caption = 'InsurgencyGroupValueLabel'
+    ParentColor = False
+  end
+  object TreatyLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 176
+    Width = 64
+    Caption = 'Treaty:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USATreaty: TLabel
+    Left = 184
+    Height = 13
+    Top = 176
+    Width = 72
+    Caption = 'USATreaty'
+    ParentColor = False
+  end
+  object USSRTreaty: TLabel
+    Left = 360
+    Height = 13
+    Top = 176
+    Width = 80
+    Caption = 'USSRTreaty'
+    ParentColor = False
+  end
+  object FinlandizationLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 192
+    Width = 136
+    Caption = 'Finlandization?'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAFinlandization: TLabel
+    Left = 184
+    Height = 13
+    Top = 192
+    Width = 136
+    Caption = 'USAFinlandization'
+    ParentColor = False
+  end
+  object USSRFinlandization: TLabel
+    Left = 360
+    Height = 13
+    Top = 192
+    Width = 144
+    Caption = 'USSRFinlandization'
+    ParentColor = False
+  end
+  object AnnualChangeLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 208
+    Width = 127
+    Caption = 'Annual Change:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAAnnualChange: TLabel
+    Left = 184
+    Height = 13
+    Top = 208
+    Width = 120
+    Caption = 'USAAnnualChange'
+    ParentColor = False
+  end
+  object USSRAnnualChange: TLabel
+    Left = 360
+    Height = 13
+    Top = 208
+    Width = 128
+    Caption = 'USSRAnnualChange'
+    ParentColor = False
+  end
+  object PressureLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 160
+    Width = 82
+    Caption = 'Pressure:'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAPressure: TLabel
+    Left = 168
+    Height = 13
+    Top = 160
+    Width = 88
+    Caption = 'USAPressure'
+    ParentColor = False
+  end
+  object USSRPressure: TLabel
+    Left = 344
+    Height = 13
+    Top = 160
+    Width = 96
+    Caption = 'USSRPressure'
+    ParentColor = False
+  end
+  object TotalsLabel: TLabel
+    Left = 512
+    Height = 13
+    Top = 16
+    Width = 55
+    Caption = 'Totals'
+    Font.Name = 'Courier'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object MilitaryAidTotals: TLabel
+    Left = 512
+    Height = 13
+    Top = 64
+    Width = 136
+    Caption = 'MilitaryAidTotals'
+    ParentColor = False
+  end
+  object InsurgencyAidTotals: TLabel
+    Left = 512
+    Height = 13
+    Top = 80
+    Width = 152
+    Caption = 'InsurgencyAidTotals'
+    ParentColor = False
+  end
+  object InterveneGovtTotals: TLabel
+    Left = 512
+    Height = 13
+    Top = 96
+    Width = 152
+    Caption = 'InterveneGovtTotals'
+    ParentColor = False
+  end
+  object InterveneRebTotals: TLabel
+    Left = 512
+    Height = 13
+    Top = 112
+    Width = 144
+    Caption = 'InterveneRebTotals'
+    ParentColor = False
+  end
+end

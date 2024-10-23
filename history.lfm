@@ -1,0 +1,46 @@
+object HistoryForm: THistoryForm
+  Left = 593
+  Height = 371
+  Top = 168
+  Width = 630
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'History'
+  ClientHeight = 371
+  ClientWidth = 630
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.6.0'
+  object WhoLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 166
+    Caption = '[WHO:    dark USSR    light USA]'
+    ParentColor = False
+  end
+  object WhatLabel: TLabel
+    Left = 192
+    Height = 15
+    Top = 8
+    Width = 224
+    Caption = '[WHAT:    gray: anti-govt    solid: pro-govt]'
+    ParentColor = False
+  end
+  object EventsLabel: TLabel
+    Left = 432
+    Height = 15
+    Top = 8
+    Width = 142
+    Caption = '[parallel lines: major event]'
+    ParentColor = False
+  end
+  object HistoryPaintBox: TPaintBox
+    Left = 0
+    Height = 344
+    Top = 32
+    Width = 632
+    Color = clWindow
+    ParentColor = False
+    OnPaint = HistoryPaintBoxPaint
+  end
+end

@@ -1,2 +1,35 @@
 # bop1990
-Port of the classic game Balance of Power: The 1990 Edition
+Balance of Power: The 1990 Edition
+
+## Overview
+This is a port of the classic Cold War geopolitical strategy game 'Balance of Power: The 1990 Edition', written by Chris Crawford and released in 1988 for the Macintosh.  It was a follow-up to the original 'Balance of Power' game, which was released in 1985.  The game has been ported from Macintosh Lightspeed Pascal to Free Pascal so that it can be compiled and run on a modern operating system without the need for any emulators or virtual environments:
+
+![BOP 1990](http://www.blarworld.net/bop1990.png
+
+For more information on the game, it's history, development, and reception when it was originally released, please see the Wikipedia page: https://en.wikipedia.org/wiki/Balance_of_Power_(video_game)
+
+For those new to the game, the manual can be found floating around online in PDF format.  It's suggested that you at least skim this once before attempting to play since there's no in-game tutorial or help.
+
+## Conversion Notes
+
+The original Lightspeed Pascal source code uses event loop polling for processing GUI events.  All of this logic has been converted to an event-driven model - that means a decent amount of code had to be reworked.  A typical example would be where the code would loop within a single function, polling for button click events at the end of each iteration.  Code like this needed to be reworked so that the loop itself was no longer present, and the logic that was formerly inside the loop would now be in its own function that would be called each time a button click event occurred.
+
+Hopefully I found all the bugs that I introduced while doing this conversion but realistically I probably didn't. :)
+
+## UI/Presentation Conversion Notes
+
+The game is based on v2.08 of the Macintosh code but I also used the Windows version for reference and several changes were incorporated from that version - for example the verbiage change from 'men' to 'troops', the larger country name headers, and some other minor look-and-feel related changes.  The main game screen is presented in a 1.5x scaled size compared to the original Mac version, which works out pretty well because the game map is all vector-based anyway.  The jagginess of the map does start to become more noticable with the higher resolution, though.
+
+## To-do List
+
+The game is playable but some features remain unimplemented as of v0.1:
+
+* All of the 'Background' menu functionality (which strictly speaking isn't necessary to play the game)
+* 2 player mode
+* Ability to resize the window(s) (?)
+* Color themes (?)
+* Program icon
+
+## Final Notes
+
+Note that original Mac or Windows Balance of Power 1990 save files are not compatible with this release, so unfortunately you can't load up your save game from 35 years ago and resume play. :)

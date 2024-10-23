@@ -1,0 +1,330 @@
+object AdvisoryForm: TAdvisoryForm
+  Left = 893
+  Height = 361
+  Top = 337
+  Width = 308
+  BorderStyle = bsSingle
+  Caption = 'Advisory'
+  ClientHeight = 361
+  ClientWidth = 308
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object AdvisoryLabel: TLabel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 306
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'AdvisoryLabel'
+    Font.Height = -19
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SphereOfInfluenceTitleLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 176
+    Width = 114
+    Caption = 'Sphere of Influence:'
+    Font.Height = -12
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object StrengthTitleLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 192
+    Width = 64
+    Caption = 'Insurgency:'
+    Font.Height = -12
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object RateOfChangeTitleLabel: TLabel
+    Left = 38
+    Height = 15
+    Top = 208
+    Width = 84
+    Caption = 'rate of change:'
+    Font.Height = -12
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SphereLabel: TLabel
+    Left = 152
+    Height = 15
+    Top = 176
+    Width = 64
+    Caption = 'SphereLabel'
+    Font.Height = -12
+    ParentColor = False
+    ParentFont = False
+  end
+  object StrengthLabel: TLabel
+    Left = 152
+    Height = 15
+    Top = 192
+    Width = 73
+    Caption = 'StrengthLabel'
+    Font.Height = -12
+    ParentColor = False
+    ParentFont = False
+  end
+  object RateLabel: TLabel
+    Left = 152
+    Height = 15
+    Top = 208
+    Width = 51
+    Caption = 'RateLabel'
+    Font.Height = -12
+    ParentColor = False
+    ParentFont = False
+  end
+  object USALabel: TLabel
+    Left = 112
+    Height = 15
+    Top = 232
+    Width = 24
+    Caption = 'USA'
+    Font.Height = -12
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRLabel: TLabel
+    Left = 208
+    Height = 15
+    Top = 232
+    Width = 31
+    Caption = 'USSR'
+    Font.Height = -12
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param1Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 248
+    Width = 67
+    Caption = 'Param1Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param2Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 264
+    Width = 67
+    Caption = 'Param2Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param3Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 280
+    Width = 67
+    Caption = 'Param3Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param4Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 296
+    Width = 67
+    Caption = 'Param4Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param5Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 312
+    Width = 67
+    Caption = 'Param5Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAParam1: TLabel
+    Left = 112
+    Height = 15
+    Top = 248
+    Width = 62
+    Caption = 'USAParam1'
+    ParentColor = False
+  end
+  object USAParam2: TLabel
+    Left = 112
+    Height = 15
+    Top = 264
+    Width = 62
+    Caption = 'USAParam2'
+    ParentColor = False
+  end
+  object USAParam3: TLabel
+    Left = 112
+    Height = 15
+    Top = 280
+    Width = 62
+    Caption = 'USAParam3'
+    ParentColor = False
+  end
+  object USAParam4: TLabel
+    Left = 112
+    Height = 15
+    Top = 296
+    Width = 62
+    Caption = 'USAParam4'
+    ParentColor = False
+  end
+  object USAParam5: TLabel
+    Left = 112
+    Height = 15
+    Top = 312
+    Width = 62
+    Caption = 'USAParam5'
+    ParentColor = False
+  end
+  object USSRParam1: TLabel
+    Left = 208
+    Height = 15
+    Top = 248
+    Width = 67
+    Caption = 'USSRParam1'
+    ParentColor = False
+  end
+  object USSRParam2: TLabel
+    Left = 208
+    Height = 15
+    Top = 264
+    Width = 67
+    Caption = 'USSRParam2'
+    ParentColor = False
+  end
+  object USSRParam3: TLabel
+    Left = 208
+    Height = 15
+    Top = 280
+    Width = 67
+    Caption = 'USSRParam3'
+    ParentColor = False
+  end
+  object USSRParam4: TLabel
+    Left = 208
+    Height = 15
+    Top = 296
+    Width = 67
+    Caption = 'USSRParam4'
+    ParentColor = False
+  end
+  object USSRParam5: TLabel
+    Left = 208
+    Height = 15
+    Top = 312
+    Width = 67
+    Caption = 'USSRParam5'
+    ParentColor = False
+  end
+  object Adv1Label: TLabel
+    Left = 80
+    Height = 13
+    Top = 36
+    Width = 52
+    Caption = 'Adv1Label'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object Adv2Label: TLabel
+    Left = 224
+    Height = 13
+    Top = 36
+    Width = 52
+    Caption = 'Adv2Label'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object Adv3Label: TLabel
+    Left = 80
+    Height = 13
+    Top = 108
+    Width = 52
+    Caption = 'Adv3Label'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object Adv4Label: TLabel
+    Left = 224
+    Height = 13
+    Top = 108
+    Width = 52
+    Caption = 'Adv4Label'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object Param6Title: TLabel
+    Left = 8
+    Height = 15
+    Top = 328
+    Width = 67
+    Caption = 'Param6Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAParam6: TLabel
+    Left = 112
+    Height = 15
+    Top = 328
+    Width = 62
+    Caption = 'USAParam6'
+    ParentColor = False
+  end
+  object USSRParam6: TLabel
+    Left = 208
+    Height = 15
+    Top = 328
+    Width = 67
+    Caption = 'USSRParam6'
+    ParentColor = False
+  end
+  object Image1: TImage
+    Left = 16
+    Height = 64
+    Top = 32
+    Width = 64
+  end
+  object Image2: TImage
+    Left = 160
+    Height = 64
+    Top = 32
+    Width = 64
+  end
+  object Image3: TImage
+    Left = 16
+    Height = 64
+    Top = 104
+    Width = 64
+  end
+  object Image4: TImage
+    Left = 160
+    Height = 64
+    Top = 104
+    Width = 64
+  end
+end

@@ -1,0 +1,134 @@
+object EventsForm: TEventsForm
+  Left = 550
+  Height = 361
+  Top = 337
+  Width = 342
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Events'
+  ClientHeight = 361
+  ClientWidth = 342
+  OnClose = EventsFormClose
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object PreviousButton: TButton
+    Left = 24
+    Height = 25
+    Top = 152
+    Width = 120
+    Caption = 'Previous'
+    OnClick = PreviousButtonClick
+    TabOrder = 0
+  end
+  object NextButton: TButton
+    Left = 176
+    Height = 25
+    Top = 152
+    Width = 120
+    Caption = 'Next'
+    OnClick = NextButtonClick
+    TabOrder = 1
+  end
+  object QuestionButton: TButton
+    Left = 24
+    Height = 25
+    Top = 256
+    Width = 120
+    Caption = 'Question'
+    OnClick = QuestionButtonClick
+    TabOrder = 2
+  end
+  object TitleLabel: TLabel
+    Left = 24
+    Height = 15
+    Top = 32
+    Width = 50
+    Caption = 'TitleLabel'
+    ParentColor = False
+  end
+  object HeadlineLabel1: TLabel
+    Left = 24
+    Height = 15
+    Top = 64
+    Width = 81
+    Caption = 'HeadlineLabel1'
+    ParentColor = False
+    WordWrap = True
+  end
+  object HeadlineLabel2: TLabel
+    Left = 24
+    Height = 15
+    Top = 184
+    Width = 81
+    Caption = 'HeadlineLabel2'
+    ParentColor = False
+    WordWrap = True
+  end
+  object PrestigeLabel: TLabel
+    Left = 24
+    Height = 15
+    Top = 288
+    Width = 75
+    Caption = 'PrestigeLabel'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USAInterestLabel: TLabel
+    Left = 24
+    Height = 15
+    Top = 304
+    Width = 98
+    Caption = 'USAInterestLabel'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object USSRInterestLabel: TLabel
+    Left = 24
+    Height = 15
+    Top = 320
+    Width = 105
+    Caption = 'USSRInterestLabel'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BackDownButton: TButton
+    Left = 176
+    Height = 25
+    Top = 256
+    Width = 120
+    Caption = 'Back Down'
+    OnClick = BackDownButtonClick
+    TabOrder = 3
+  end
+  object NewsLabel1: TLabel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 342
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'NewsLabel1'
+    Font.Height = -19
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object NewsLabel2: TLabel
+    Left = 0
+    Height = 25
+    Top = 24
+    Width = 342
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'NewsLabel2'
+    Font.Height = -19
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+end
