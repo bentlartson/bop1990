@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, Main, Init, Globals, StdRoutines, MakePolicies, Events, Advisory,
-  Score, Closeup, History, About;
+  Score, Closeup, History, About, Background;
 
 {$R *.res}
 

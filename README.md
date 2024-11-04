@@ -29,13 +29,11 @@ The game is based on v2.08 of the Macintosh code but I also used the Windows ver
 
 ## To-do List
 
-The game is playable but some features remain unimplemented as of v0.1:
+The game is close to completion but a few things remain on the to-do list as of v0.2:
 
-* All of the 'Background' menu functionality (which strictly speaking isn't necessary to play the game)
-* 2 player mode
-* Ability to resize the window(s) (?)
-* Color themes (?)
-* Program icon
+* Add display scaling to the history window (?)
+* Add more color themes (?)
+* Add program icon
 
 ## Final Notes
 

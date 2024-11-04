@@ -1,7 +1,7 @@
 object MakePoliciesForm: TMakePoliciesForm
-  Left = 511
+  Left = 554
   Height = 358
-  Top = 332
+  Top = 334
   Width = 224
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle

@@ -179,7 +179,7 @@ begin
         end
     else
         begin
-            IF Subject[EventsForm.WhichHead]=Cmptr THEN
+            IF Subject[EventsForm.WhichHead] <= 2 THEN
                 begin
                     Crisis(EventsForm, EventsForm.WhichHead, EventsForm.HeadlineLabel2, EventsForm.QuestionButton, EventsForm.BackDownButton, EventsForm.PreviousButton, EventsForm.NextButton,
                         EventsForm.PrestigeLabel, EventsForm.USAInterestLabel, EventsForm.USSRInterestLabel, 2)
@@ -189,7 +189,7 @@ begin
                     CrisisVal[WhichHead]:=TRUE;
                 end;
 
-            ChooseHead(theItem, 2);
+            IF (not(TwoPFlag)) THEN ChooseHead(theItem, 2);
         end;
 end;
 
@@ -515,7 +515,7 @@ BEGIN
 
     IF whichControl=RespHndl THEN
         BEGIN
-            IF Subject[EventsForm.WhichHead]=Cmptr THEN
+            IF Subject[EventsForm.WhichHead] <= 2 THEN
                 begin
                     {Is this an actual new crisis and not a continuation of one already started?}
                     if ((CrisisHeadline <> EventsForm.WhichHead) or (CrisisHeadline = -1)) then
@@ -659,11 +659,11 @@ BEGIN
                                             QuitFlag:=Crisis(EventsForm, i, EventsForm.HeadlineLabel2, EventsForm.QuestionButton, EventsForm.BackDownButton, EventsForm.PreviousButton, EventsForm.NextButton, EventsForm.PrestigeLabel,
                                             EventsForm.USAInterestLabel, EventsForm.USSRInterestLabel, 1);
                                             EventsForm.BackDownButton.Visible := true;
-                                            EventsForm.Top := MainForm.Top + FormStartY;
-                                            EventsForm.Left := MainForm.Left +  FormStartX;
+                                            EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+                                            EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
                                             EventsForm.Show;
-                                            AdvisoryForm.Top := MainForm.Top + FormStartY;
-                                            AdvisoryForm.Left := MainForm.Left +  FormStartX + EventsForm.Width;
+                                            AdvisoryForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+                                            AdvisoryForm.Left := MainForm.Left + Round(FormStartX * DisplayScale) + EventsForm.Width;
                                             exit;
                                         END; {of x-test}
                                 END    {of Subject=Human, etc test}

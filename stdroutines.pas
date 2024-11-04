@@ -255,11 +255,11 @@ BEGIN
     END;     {of huge CASE statement}
     FOR i:=1 TO NoCntry DO
         BEGIN
-            x:=TColor(DarkGrayRGB);
-            IF SortArr[i]<Scale3 THEN x:=TColor(MediumGrayRGB);
-            IF SortArr[i]<Scale2 THEN x:=TColor(LightGrayRGB);
-            IF SortArr[i]<Scale1 THEN x:=clWhite;
-            IF i=HitCntry THEN x:=clBlack;
+            x:=HighValueColor;
+            IF SortArr[i]<Scale3 THEN x:=MediumValueColor;
+            IF SortArr[i]<Scale2 THEN x:=LowValueColor;
+            IF SortArr[i]<Scale1 THEN x:=CountryBackgroundColor;
+            IF i=HitCntry THEN x:=CountrySelectionColor;
             FillCntry(i,x);
         END;
     WritScor(PaintBox1);
@@ -267,8 +267,8 @@ BEGIN
         BEGIN
             WriteYear(PaintBox1);
             {Clear any old rectangles, legend text, and bottom text}
-            PaintBox1.Canvas.Brush.Color := clMenuBar;
-            PaintBox1.Canvas.Pen.Color := clMenuBar;
+            PaintBox1.Canvas.Brush.Color := BackgroundColor;
+            PaintBox1.Canvas.Pen.Color := BackgroundColor;
             PaintBox1.Canvas.Rectangle(round(326 * DisplayScale), round(220 * DisplayScale), round(434 * DisplayScale), round(298 * DisplayScale));
             PaintBox1.Canvas.Rectangle(round(200 * DisplayScale), round(300 * DisplayScale), round(512 * DisplayScale), round(320 * DisplayScale));
 
@@ -286,21 +286,23 @@ BEGIN
                     TempStrng:=Concat(TempStrng,SmlStrng);
 
                     {Draw the bottom text}
-                    PaintBox1.Canvas.Pen.Color := clBlack;
+                    PaintBox1.Canvas.Pen.Color := OutlineColor;
+                    PaintBox1.Canvas.Font.Color := OutlineColor;
                     PaintBox1.Canvas.Font.Size := 10;
                     PaintBox1.Canvas.Rectangle(round(200 * DisplayScale), round(300 * DisplayScale), round(512 * DisplayScale), round(320 * DisplayScale));
-                    PaintBox1.Canvas.TextOut(round(205 * DisplayScale), round(303.5 * DisplayScale), TempStrng);
+                    PaintBox1.Canvas.TextOut(round(205 * DisplayScale), round(310 * DisplayScale) - 10, TempStrng);
 
                     FOR i:=1 TO 4 DO     {draw and label map key}
                         BEGIN
                             CASE i OF
-                                1: PaintBox1.Canvas.Brush.Color := clWhite;
-                                2: PaintBox1.Canvas.Brush.Color := TColor(LightGrayRGB);
-                                3: PaintBox1.Canvas.Brush.Color := TColor(MediumGrayRGB);
-                                4: PaintBox1.Canvas.Brush.Color := TColor(DarkGrayRGB);
+                                1: PaintBox1.Canvas.Brush.Color := CountryBackgroundColor;
+                                2: PaintBox1.Canvas.Brush.Color := LowValueColor;
+                                3: PaintBox1.Canvas.Brush.Color := MediumValueColor;
+                                4: PaintBox1.Canvas.Brush.Color := HighValueColor;
                             END;
 
                             {Draw the rectangles}
+                            PaintBox1.Canvas.Pen.Color := OutlineColor;
                             PaintBox1.Canvas.Rectangle(round(326 * DisplayScale), round((200+20*i) * DisplayScale), round(338 * DisplayScale), round((215+20*i) * DisplayScale));
 
                             k:=k+1;
@@ -310,9 +312,9 @@ BEGIN
                             IF NOT ((OldVHigh=MEvents) and (i>1) and ((5-Level)>i)) THEN
                                 begin
                                     {Draw the rectangle legend text}
-                                    PaintBox1.Canvas.Brush.Color := clMenuBar;
-                                    PaintBox1.Canvas.Pen.Color := clBlack;
-                                    PaintBox1.Canvas.TextOut(round(342 * DisplayScale), round((201+20*i) * DisplayScale), TempStrng);
+                                    PaintBox1.Canvas.Brush.Color := BackgroundColor;
+                                    PaintBox1.Canvas.Font.Color := OutlineColor;
+                                    PaintBox1.Canvas.TextOut(round(342 * DisplayScale), round((208+20*i) * DisplayScale) - 10, TempStrng);
                                 end;
                         END;
                 END;
@@ -913,6 +915,10 @@ BEGIN
                 Stream.Read(MAidHistory[i], SizeOf(MAidHistory[i]));
                 Stream.Read(SqrtStrgHistory[i], SizeOf(SqrtStrgHistory[i]));
             END;
+
+        Stream.Read(SelectedTheme, SizeOf(SelectedTheme));
+        Stream.Read(SelectedMapScale, SizeOf(SelectedMapScale));
+
     finally
         Stream.Free;
     end;
@@ -1081,6 +1087,9 @@ BEGIN
                 Stream.Write(MAidHistory[i], SizeOf(MAidHistory[i]));
                 Stream.Write(SqrtStrgHistory[i], SizeOf(SqrtStrgHistory[i]));
             END;
+
+        Stream.Write(SelectedTheme, SizeOf(SelectedTheme));
+        Stream.Write(SelectedMapScale, SizeOf(SelectedMapScale));
 
         Stream.SaveToFile(SaveGameFilename);
     finally

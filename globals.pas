@@ -29,8 +29,13 @@ CONST
     MediumGrayRGB = $A0A0A0;
     DarkGrayRGB   = $606060;
 
-    FormStartX    = 25;
-    FormStartY    = 70;
+    LtMedGrayRGB  = $C0C0C0;
+    MedDkGrayRGB  = $808080;
+    VDarkGrayRGB  = $404040;
+
+    FormStartX    = 17;
+    FormStartY    = 17;
+    FormTopOffset = 44;
 
 TYPE
     NamArr        = ARRAY[1..NoCntry] OF String[16];
@@ -215,6 +220,18 @@ VAR
     SaveGameFilename:       String;
     GameOver:               Boolean;
 
+    SelectedTheme:          Integer;
+    SelectedMapScale:       Integer;
+
+    {Theme globals}
+    BackgroundColor:        Integer;
+    OutlineColor:           Integer;
+    CountryBackgroundColor: Integer;
+    CountrySelectionColor:  Integer;
+    LowValueColor:          Integer;
+    MediumValueColor:       Integer;
+    HighValueColor:         Integer;
+
 FUNCTION  EconConv(Value: Integer): Integer;
 FUNCTION  MAidConv(Value: Integer): Integer;
 FUNCTION  IntvConv(Value: Integer): Integer;
@@ -228,6 +245,7 @@ FUNCTION  InsgIMax(SuprPowr,MinrPowr: Integer): Integer;
 FUNCTION  Should(Treata: Integer): Integer;
 PROCEDURE ChgDipAff(i,j,delta: Integer);
 PROCEDURE WritScor(PaintBox1: TPaintBox);
+PROCEDURE WriteActivePlayerInfo(PaintBox1: TPaintBox);
 PROCEDURE FillCntry(i: Integer; IColor: TColor);
 PROCEDURE CalcScores;
 PROCEDURE TimeMesg(OutString: Str255; PaintBox1: TPaintBox);
@@ -240,6 +258,7 @@ PROCEDURE Headline(Base,rank,Vert,LoclSubj,LoclObj,Old: Integer; LoclCris: Boole
 PROCEDURE GetLabels(Cntry: Integer; VAR AdjectStr,CaptlStr,LeadrStr,LeftStr,RigtStr,NameStr: Str32);
 PROCEDURE GrafScor(PaintBox1: TPaintBox);
 PROCEDURE EndGame(PaintBox1: TPaintBox);
+PROCEDURE ExchangP(PaintBox1: TPaintBox);
 FUNCTION  Influence(SuperPower,Minor: Integer): Integer;
 PROCEDURE ChgDMess(Who,HowMuch: Integer);
 PROCEDURE WriteYear(PaintBox1: TPaintBox);
@@ -415,16 +434,33 @@ BEGIN
     DipAff[j,i]:=x;
 END;
 
+PROCEDURE WriteActivePlayerInfo(PaintBox1: TPaintBox);
+VAR
+    TempStrng: String;
+BEGIN
+	IF TwoPFlag THEN
+		  BEGIN
+			  IF Human = 1 THEN TempStrng := 'USA holds mouse    '
+                  ELSE TempStrng := 'USSR holds mouse';
+              PaintBox1.Canvas.Font.Color := OutlineColor;
+              PaintBox1.Canvas.Brush.Color := BackgroundColor;
+              PaintBox1.Canvas.Font.Size := 10;
+              PaintBox1.Canvas.TextOut(round(90 * DisplayScale), round(320 * DisplayScale), TempStrng);
+		  END;
+END;
+
 PROCEDURE WritScor(PaintBox1: TPaintBox);
 BEGIN
-    PaintBox1.Canvas.Brush.Color := clMenuBar;
-    PaintBox1.Canvas.Pen.Width := 1;
-    PaintBox1.Canvas.Pen.Color := clMenuBar;
-    PaintBox1.Canvas.Rectangle(round(225 * DisplayScale), round(320 * DisplayScale), round(510 * DisplayScale), round(340 * DisplayScale));
+    WriteActivePlayerInfo(PaintBox1);
 
-    PaintBox1.Canvas.Pen.Color := clBlack;
+    PaintBox1.Canvas.Brush.Color := BackgroundColor;
+    PaintBox1.Canvas.Pen.Width := 1;
+    PaintBox1.Canvas.Pen.Color := BackgroundColor;
+    PaintBox1.Canvas.Rectangle(round(200 * DisplayScale), round(320 * DisplayScale), round(512 * DisplayScale), round(340 * DisplayScale));
+
+    PaintBox1.Canvas.Font.Color := OutlineColor;
     PaintBox1.Canvas.Font.Size := 10;
-    PaintBox1.Canvas.TextOut(round(230 * DisplayScale), round(320 * DisplayScale), 'USA Score:       ' + IntToStr(USAStrng-IUSAStrng) +
+    PaintBox1.Canvas.TextOut(round(230 * DisplayScale), round(327 * DisplayScale) - 10, 'USA Score:       ' + IntToStr(USAStrng-IUSAStrng) +
         '                USSR Score:       ' + IntToStr(USSRStrng-IUSSRStrng));
 END;
 
@@ -942,6 +978,16 @@ BEGIN
         END;
 END;
 
+PROCEDURE ExchangP(PaintBox1: TPaintBox);
+VAR
+	x:                Integer;
+BEGIN
+	x:=Human;
+	Human:=Cmptr;
+	Cmptr:=x;
+	WriteActivePlayerInfo(PaintBox1);
+END;
+
 PROCEDURE EndGame(PaintBox1: TPaintBox);
 VAR
     i,x,XPos:         Integer;
@@ -989,7 +1035,6 @@ BEGIN
             PaintBox1.Canvas.TextOut(round(80 * DisplayScale), round(131 * DisplayScale), TempStrng);
             TempStrng:='We do not reward failure.';
             PaintBox1.Canvas.TextOut(round(150 * DisplayScale), round(183 * DisplayScale), TempStrng);
-
         END;
 END;
 
@@ -1019,10 +1064,10 @@ END;
 PROCEDURE WriteYear(PaintBox1: TPaintBox);
 BEGIN
     {Clear the year and redraw it}
-    PaintBox1.Canvas.Brush.Color := clMenuBar;
-    PaintBox1.Canvas.Pen.Color := clMenuBar;
+    PaintBox1.Canvas.Brush.Color := BackgroundColor;
+    PaintBox1.Canvas.Pen.Color := BackgroundColor;
     PaintBox1.Canvas.Rectangle(round(450 * DisplayScale), round(0 * DisplayScale), round(500 * DisplayScale), round(20 * DisplayScale));
-    PaintBox1.Canvas.Pen.Color := clBlack;
+    PaintBox1.Canvas.Font.Color := OutlineColor;
     PaintBox1.Canvas.Font.Size := round(9 * DisplayScale);
     PaintBox1.Canvas.TextOut(round(450 * DisplayScale), round(0 * DisplayScale), IntToStr(Year));
 end;

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 609
+  Left = 491
   Height = 537
-  Top = 189
+  Top = 156
   Width = 768
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -153,7 +153,6 @@ object MainForm: TMainForm
     ChildSizing.ControlsPerLine = 1
     ClientHeight = 58
     ClientWidth = 141
-    Enabled = False
     Font.Height = -13
     ItemIndex = 0
     Items.Strings = (
@@ -171,39 +170,6 @@ object MainForm: TMainForm
     Caption = 'Start Game'
     OnClick = StartButtonClick
     TabOrder = 4
-  end
-  object TitleLabel: TLabel
-    Left = 128
-    Height = 52
-    Top = 64
-    Width = 512
-    AutoSize = False
-    Caption = 'Balance of Power'
-    Font.CharSet = ANSI_CHARSET
-    Font.Height = -53
-    Font.Name = 'Courier New'
-    Font.Pitch = fpFixed
-    Font.Quality = fqDraft
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
-  object TitleLabel2: TLabel
-    Left = 132
-    Height = 59
-    Top = 64
-    Width = 512
-    AutoSize = False
-    Caption = 'Balance of Power'
-    Font.CharSet = ANSI_CHARSET
-    Font.Color = clGray
-    Font.Height = -53
-    Font.Name = 'Courier New'
-    Font.Pitch = fpFixed
-    Font.Quality = fqDraft
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
   end
   object NewGameButton: TButton
     Left = 80
@@ -240,6 +206,7 @@ object MainForm: TMainForm
       end
       object ChangeSidesMenuItem: TMenuItem
         Caption = 'Change Sides'
+        OnClick = ChangeSidesMenuItemClick
       end
       object Separator2: TMenuItem
         Caption = '-'
@@ -250,6 +217,33 @@ object MainForm: TMainForm
       end
       object Separator3: TMenuItem
         Caption = '-'
+      end
+      object PreferencesMenuItem: TMenuItem
+        Caption = 'Preferences'
+        object ThemeMenuItem: TMenuItem
+          Caption = 'Theme'
+          object ClassicMenuItem: TMenuItem
+            Caption = 'Classic'
+            Checked = True
+            OnClick = ClassicMenuItemClick
+          end
+          object DarkModeMenuItem: TMenuItem
+            Caption = 'Dark Mode'
+            OnClick = DarkModeMenuItemClick
+          end
+        end
+        object MapScaleMenuItem: TMenuItem
+          Caption = 'Map Scale'
+          object OnePointFiveTimesMenuItem: TMenuItem
+            Caption = '1.5x'
+            Checked = True
+            OnClick = OnePointFiveTimesMenuItemClick
+          end
+          object TwoTimesMenuItem: TMenuItem
+            Caption = '2.0x'
+            OnClick = TwoTimesMenuItemClick
+          end
+        end
       end
       object AboutBOPMenuItem: TMenuItem
         Caption = 'About BOP'
@@ -424,6 +418,7 @@ object MainForm: TMainForm
       end
       object BackgroundMenuItem: TMenuItem
         Caption = 'Background'
+        OnClick = BackgroundMenuItemClick
       end
       object HistoryMenuItem: TMenuItem
         Caption = 'History'
@@ -788,8 +783,177 @@ object MainForm: TMainForm
     Left = 48
   end
   object TitleScreenTimer: TTimer
-    Interval = 2500
+    Interval = 2000
     OnTimer = OnTimer
     Left = 72
+  end
+  object MainMenu2: TMainMenu
+    Left = 96
+    object ResumeGameMenuItem: TMenuItem
+      Caption = 'Resume Game'
+      object YesResumeGameMenuItem: TMenuItem
+        Caption = 'Yes, Resume Game'
+        OnClick = YesResumeGameMenuItemClick
+      end
+    end
+    object ResourcesMenuItem: TMenuItem
+      Caption = 'Resources'
+      object GNPMenuItem: TMenuItem
+        Caption = 'GNP'
+        OnClick = GNPMenuItemClick
+      end
+      object MilitarySpendingMenuItem: TMenuItem
+        Caption = 'Military Spending'
+        OnClick = MilitarySpendingMenuItemClick
+      end
+      object ConsumerSpendingMenuItem: TMenuItem
+        Caption = 'Consumer Spending'
+        OnClick = ConsumerSpendingMenuItemClick
+      end
+      object InvestmentSpendingMenuItem: TMenuItem
+        Caption = 'Investment Spending'
+        OnClick = InvestmentSpendingMenuItemClick
+      end
+      object PopulationMenuItem: TMenuItem
+        Caption = 'Population'
+        OnClick = PopulationMenuItemClick
+      end
+      object MilitaryPersonnelMenuItem: TMenuItem
+        Caption = 'Military Personnel'
+        OnClick = MilitaryPersonnelMenuItemClick
+      end
+      object Separator5: TMenuItem
+        Caption = '-'
+      end
+      object PerNothingMenuItem: TMenuItem
+        Caption = 'per nothing'
+        Checked = True
+        OnClick = PerNothingMenuItemClick
+      end
+      object PerCapitaMenuItem: TMenuItem
+        Caption = 'per capita'
+        OnClick = PerCapitaMenuItemClick
+      end
+      object PerGNPMenuItem: TMenuItem
+        Caption = 'per GNP'
+        OnClick = PerGNPMenuItemClick
+      end
+    end
+    object WellBeingMenuItem: TMenuItem
+      Caption = 'Well-Being'
+      object LiteracyMenuItem: TMenuItem
+        Caption = 'Literacy'
+        OnClick = LiteracyMenuItemClick
+      end
+      object EnergyMenuItem: TMenuItem
+        Caption = 'Energy'
+        OnClick = EnergyMenuItemClick
+      end
+      object CaloriesMenuItem: TMenuItem
+        Caption = 'Calories'
+        OnClick = CaloriesMenuItemClick
+      end
+      object DoctorsMenuItem: TMenuItem
+        Caption = 'Doctors'
+        OnClick = DoctorsMenuItemClick
+      end
+      object InfantMenuItem: TMenuItem
+        Caption = 'Infant'
+        OnClick = InfantMenuItemClick
+      end
+      object SchoolsMenuItem: TMenuItem
+        Caption = 'Schools'
+        OnClick = SchoolsMenuItemClick
+      end
+      object TVsMenuItem: TMenuItem
+        Caption = 'TVs'
+        OnClick = TVsMenuItemClick
+      end
+      object TelephonesMenuItem: TMenuItem
+        Caption = 'Telephones'
+        OnClick = TelephonesMenuItemClick
+      end
+    end
+    object ViolenceMenuItem: TMenuItem
+      Caption = 'Violence'
+      object ProtestsMenuItem: TMenuItem
+        Caption = 'Protests'
+        OnClick = ProtestsMenuItemClick
+      end
+      object DeathsMenuItem: TMenuItem
+        Caption = 'Deaths'
+        OnClick = DeathsMenuItemClick
+      end
+      object RiotsMenuItem: TMenuItem
+        Caption = 'Riots'
+        OnClick = RiotsMenuItemClick
+      end
+      object ArmedAttacksMenuItem: TMenuItem
+        Caption = 'Armed Attacks'
+        OnClick = ArmedAttacksMenuItemClick
+      end
+      object AssassinationsMenuItem: TMenuItem
+        Caption = 'Assassinations'
+        OnClick = AssassinationsMenuItemClick
+      end
+      object ExecutionsMenuItem: TMenuItem
+        Caption = 'Executions'
+        OnClick = ExecutionsMenuItemClick
+      end
+      object Separator6: TMenuItem
+        Caption = '-'
+      end
+      object PerNothingMenuItem2: TMenuItem
+        Caption = 'per nothing'
+        Checked = True
+        OnClick = PerNothingMenuItem2Click
+      end
+      object PerCapitaMenuItem2: TMenuItem
+        Caption = 'per capita'
+        OnClick = PerCapitaMenuItem2Click
+      end
+    end
+    object PoliticalMenuItem: TMenuItem
+      Caption = 'Political'
+      object PoliticalRightsMenuITem: TMenuItem
+        Caption = 'Political Rights'
+        OnClick = PoliticalRightsMenuITemClick
+      end
+      object CivilRightsMenuItem: TMenuItem
+        Caption = 'Civil Rights'
+        OnClick = CivilRightsMenuItemClick
+      end
+    end
+    object GNPPercentagesMenuItem: TMenuItem
+      Caption = 'GNP %-ages'
+      object AgricultureMenuItem: TMenuItem
+        Caption = 'Agriculture'
+        OnClick = AgricultureMenuItemClick
+      end
+      object IndustryMenuItem: TMenuItem
+        Caption = 'Industry'
+        OnClick = IndustryMenuItemClick
+      end
+      object ServicesMenuItem: TMenuItem
+        Caption = 'Services'
+        OnClick = ServicesMenuItemClick
+      end
+      object TradeMenuItem: TMenuItem
+        Caption = 'Trade'
+        OnClick = TradeMenuItemClick
+      end
+      object TaxesMenuItem: TMenuItem
+        Caption = 'Taxes'
+        OnClick = TaxesMenuItemClick
+      end
+      object PublicEducationMenuItem: TMenuItem
+        Caption = 'Public Education'
+        OnClick = PublicEducationMenuItemClick
+      end
+      object PublicHealthMenuItem: TMenuItem
+        Caption = 'Public Health'
+        OnClick = PublicHealthMenuItemClick
+      end
+    end
   end
 end

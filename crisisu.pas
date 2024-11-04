@@ -344,6 +344,7 @@ BEGIN
     IF (FirstCrisisIteration) THEN
         BEGIN
             EventsForm.Caption := 'BackChannel';
+            BackDownButton.Visible := true;
         END
     ELSE
         BEGIN    {human input}
@@ -357,7 +358,7 @@ BEGIN
                             IF Human=2 THEN Base:=700 ELSE Base:=800;
                             IF odd(CrisisLevel) THEN
                                 BEGIN
-                                    {SetPort(MainWind); ExchangP; SetPort(myWind);}
+                                    {SetPort(MainWind);} ExchangP(ScreenPaintBox); {SetPort(myWind);}
                                 END;
                             HeadLine(Base+50+4*CrisisLevel,0,150,Who,Victim,OldNVal[WhichHead],CrisisVal[WhichHead],FormLabel,QuestionButton);
                             QuestionButton.Caption := 'OK';
@@ -456,8 +457,8 @@ BEGIN
             TempStrng := GetIndString(590,CrisisLevel);
             QuestionButton.Caption := TempStrng;
             QuestionButton.Enabled := true;
-            {IF TwoPFlag THEN BEGIN SetPort(MainWind); ExchangP; SetPort(myWind); END;
-            HiliteControl(RespHndl,0);
+            IF TwoPFlag THEN BEGIN {SetPort(MainWind);} ExchangP(ScreenPaintBox); {SetPort(myWind);} END;
+            {HiliteControl(RespHndl,0);
             REPEAT UNTIL ReadMouse(FALSE)>0;
             ClearRect(2,248,250,295);}
         END;

@@ -7,19 +7,67 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Menus,
   StdCtrls, MakePolicies, Events, Advisory, Globals, Init, StdRoutines,
-  PlanMove, NewResrc, Closeup, History, Score, About;
+  PlanMove, NewResrc, Closeup, History, Score, About, Background;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
-    MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
+    MainMenu2: TMainMenu;
+    GNPPercentagesMenuItem: TMenuItem;
+    GNPMenuItem: TMenuItem;
+    InvestmentSpendingMenuItem: TMenuItem;
+    LiteracyMenuItem: TMenuItem;
+    EnergyMenuItem: TMenuItem;
+    CaloriesMenuItem: TMenuItem;
+    DoctorsMenuItem: TMenuItem;
+    InfantMenuItem: TMenuItem;
+    AgricultureMenuItem: TMenuItem;
+    IndustryMenuItem: TMenuItem;
+    TwoTimesMenuItem: TMenuItem;
+    OnePointFiveTimesMenuItem: TMenuItem;
+    MapScaleMenuItem: TMenuItem;
+    PreferencesMenuItem: TMenuItem;
+    ThemeMenuItem: TMenuItem;
+    ClassicMenuItem: TMenuItem;
+    DarkModeMenuItem: TMenuItem;
+    ServicesMenuItem: TMenuItem;
+    TradeMenuItem: TMenuItem;
+    TaxesMenuItem: TMenuItem;
+    PublicEducationMenuItem: TMenuItem;
+    PublicHealthMenuItem: TMenuItem;
+    PoliticalRightsMenuITem: TMenuItem;
+    CivilRightsMenuItem: TMenuItem;
+    ProtestsMenuItem: TMenuItem;
+    DeathsMenuItem: TMenuItem;
+    RiotsMenuItem: TMenuItem;
+    ArmedAttacksMenuItem: TMenuItem;
+    AssassinationsMenuItem: TMenuItem;
+    ExecutionsMenuItem: TMenuItem;
+    PerNothingMenuItem2: TMenuItem;
+    PerCapitaMenuItem2: TMenuItem;
+    SchoolsMenuItem: TMenuItem;
+    Separator6: TMenuItem;
+    TVsMenuItem: TMenuItem;
+    TelephonesMenuItem: TMenuItem;
+    PerNothingMenuItem: TMenuItem;
+    PerCapitaMenuItem: TMenuItem;
+    PerGNPMenuItem: TMenuItem;
+    PopulationMenuItem: TMenuItem;
+    MilitaryPersonnelMenuItem: TMenuItem;
+    MilitarySpendingMenuItem: TMenuItem;
+    ConsumerSpendingMenuItem: TMenuItem;
+    PoliticalMenuItem: TMenuItem;
+    Separator5: TMenuItem;
+    ViolenceMenuItem: TMenuItem;
+    WellBeingMenuItem: TMenuItem;
+    ResourcesMenuItem: TMenuItem;
+    ResumeGameMenuItem: TMenuItem;
+    YesResumeGameMenuItem: TMenuItem;
     NewGameButton: TButton;
     LoadOldGameButton: TButton;
     TitleScreenTimer: TTimer;
-    TitleLabel: TLabel;
     Separator4: TMenuItem;
     StartButton: TButton;
     EndButton: TButton;
@@ -38,7 +86,6 @@ type
     BackgroundMenuItem: TMenuItem;
     HistoryMenuItem: TMenuItem;
     LevelRadioGroup: TRadioGroup;
-    TitleLabel2: TLabel;
     TreatyMenuItem: TMenuItem;
     DiplomaticPressurePolicyMenuItem: TMenuItem;
     TradePolicyPolicyMenuItem: TMenuItem;
@@ -180,41 +227,59 @@ type
 
     procedure AboutBOPMenuItemClick(Sender: TObject);
     procedure AfghanistanMenuItemClick(Sender: TObject);
+    procedure AgricultureMenuItemClick(Sender: TObject);
     procedure AidToInsurgentsMenuItemClick(Sender: TObject);
     procedure AidToInsurgentsPolicyMenuITemClick(Sender: TObject);
     procedure AlgeriaMenuItemClick(Sender: TObject);
     procedure AngolaMenuItemClick(Sender: TObject);
+    procedure ArmedAttacksMenuItemClick(Sender: TObject);
+    procedure AssassinationsMenuItemClick(Sender: TObject);
     procedure AtWarWithMenuItemClick(Sender: TObject);
     procedure AustraliaMenuItemClick(Sender: TObject);
+    procedure BackgroundMenuItemClick(Sender: TObject);
     procedure BotswanaMenuItemClick(Sender: TObject);
     procedure BurkinaFasoMenuItemClick(Sender: TObject);
     procedure BurmaMenuItemClick(Sender: TObject);
+    procedure CaloriesMenuItemClick(Sender: TObject);
     procedure CameroonMenuItemClick(Sender: TObject);
     procedure CentralAfricaMenuItemClick(Sender: TObject);
     procedure ChadMenuItemClick(Sender: TObject);
+    procedure ChangeSidesMenuItemClick(Sender: TObject);
     procedure ChinaMenuItemClick(Sender: TObject);
+    procedure CivilRightsMenuItemClick(Sender: TObject);
+    procedure ClassicMenuItemClick(Sender: TObject);
     procedure CloseupMenuItemClick(Sender: TObject);
     procedure CongoMenuItemClick(Sender: TObject);
+    procedure ConsumerSpendingMenuItemClick(Sender: TObject);
+    procedure DarkModeMenuItemClick(Sender: TObject);
+    procedure DeathsMenuItemClick(Sender: TObject);
     procedure DestabilizationMenuItemClick(Sender: TObject);
     procedure DestabilizeMenuItemClick(Sender: TObject);
     procedure DiplomaticPressureMenuItemClick(Sender: TObject);
     procedure DiplomaticPressurePolicyMenuItemClick(Sender: TObject);
+    procedure DoctorsMenuItemClick(Sender: TObject);
     procedure EconomicAidMenuItemClick(Sender: TObject);
     procedure EconomicAidPolicyMenuItemClick(Sender: TObject);
     procedure EgyptMenuItemClick(Sender: TObject);
     procedure EndButtonClick(Sender: TObject);
+    procedure EnergyMenuItemClick(Sender: TObject);
     procedure EthiopiaMenuItemClick(Sender: TObject);
+    procedure ExecutionsMenuItemClick(Sender: TObject);
     procedure GhanaMenuItemClick(Sender: TObject);
+    procedure GNPMenuItemClick(Sender: TObject);
     procedure GoingInMenuItemClick(Sender: TObject);
     procedure GoingOutMenuItemClick(Sender: TObject);
     procedure GuineaMenuItemClick(Sender: TObject);
     procedure HistoryMenuItemClick(Sender: TObject);
     procedure IndiaMenuItemClick(Sender: TObject);
     procedure IndonesiaMenuItemClick(Sender: TObject);
+    procedure IndustryMenuItemClick(Sender: TObject);
+    procedure InfantMenuItemClick(Sender: TObject);
     procedure InterveneForGovtMenuItemClick(Sender: TObject);
     procedure InterveneForRebelsMenuItemClick(Sender: TObject);
     procedure InterventionsForGovtMenuItemClick(Sender: TObject);
     procedure InterventionsForRebelsMenuItemClick(Sender: TObject);
+    procedure InvestmentSpendingMenuItemClick(Sender: TObject);
     procedure IranMenuItemClick(Sender: TObject);
     procedure IraqMenuItemClick(Sender: TObject);
     procedure IsraelMenuItemClick(Sender: TObject);
@@ -224,21 +289,44 @@ type
     procedure KenyaMenuItemClick(Sender: TObject);
     procedure LebanonMenuItemClick(Sender: TObject);
     procedure LibyaMenuItemClick(Sender: TObject);
+    procedure LiteracyMenuItemClick(Sender: TObject);
     procedure LoadOldGameButtonClick(Sender: TObject);
     procedure MaliMenuItemClick(Sender: TObject);
     procedure MauritaniaMenuItemClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MilitaryAidMenuItemClick(Sender: TObject);
     procedure MilitaryAidPolicyMenuItemClick(Sender: TObject);
+    procedure MilitaryPersonnelMenuItemClick(Sender: TObject);
+    procedure MilitarySpendingMenuItemClick(Sender: TObject);
     procedure MinorCountryNewsMenuItemClick(Sender: TObject);
     procedure MoroccoMenuItemClick(Sender: TObject);
     procedure MozambiqueMenuItemClick(Sender: TObject);
     procedure NewGameButtonClick(Sender: TObject);
     procedure NewspaperMenuItemClick(Sender: TObject);
     procedure NextTurnMenuItemClick(Sender: TObject);
+    procedure DrawTitle;
+    procedure OnePointFiveTimesMenuItemClick(Sender: TObject);
     procedure OnTimer(Sender: TObject);
+    procedure PerCapitaMenuItem2Click(Sender: TObject);
+    procedure PerCapitaMenuItemClick(Sender: TObject);
+    procedure PerGNPMenuItemClick(Sender: TObject);
+    procedure PerNothingMenuItem2Click(Sender: TObject);
+    procedure PerNothingMenuItemClick(Sender: TObject);
+    procedure PoliticalRightsMenuITemClick(Sender: TObject);
+    procedure PopulationMenuItemClick(Sender: TObject);
+    procedure ProtestsMenuItemClick(Sender: TObject);
+    procedure PublicEducationMenuItemClick(Sender: TObject);
+    procedure PublicHealthMenuItemClick(Sender: TObject);
     procedure QuitGameMenuITemClick(Sender: TObject);
+    procedure SetClassicTheme;
+    procedure SetDarkModeTheme;
+    procedure SetEndGameButtonPosition;
+    procedure SetOnePointFiveTimesScale;
+    procedure SetTwoTimesScale;
+    procedure RiotsMenuItemClick(Sender: TObject);
+    procedure SchoolsMenuItemClick(Sender: TObject);
     procedure ScoreMenuItemClick(Sender: TObject);
+    procedure ServicesMenuItemClick(Sender: TObject);
     procedure SetPolicy(Item: Integer);
     procedure NextTurn;
     procedure GiveInfo(theItem: INTEGER);
@@ -299,13 +387,18 @@ type
     procedure SyriaMenuItemClick(Sender: TObject);
     procedure TaiwanMenuItemClick(Sender: TObject);
     procedure TanzaniaMenuItemClick(Sender: TObject);
+    procedure TaxesMenuItemClick(Sender: TObject);
+    procedure TelephonesMenuItemClick(Sender: TObject);
     procedure ThailandMenuItemClick(Sender: TObject);
+    procedure TradeMenuItemClick(Sender: TObject);
     procedure TradePolicyMenuItemClick(Sender: TObject);
     procedure TradePolicyPolicyMenuItemClick(Sender: TObject);
     procedure TreatiesMenuItemClick(Sender: TObject);
     procedure TreatyMenuItemClick(Sender: TObject);
     procedure TunisiaMenuItemClick(Sender: TObject);
     procedure TurkeyMenuItemClick(Sender: TObject);
+    procedure TVsMenuItemClick(Sender: TObject);
+    procedure TwoTimesMenuItemClick(Sender: TObject);
     procedure UndoLastTurnMenuItemClick(Sender: TObject);
     procedure USAActionsMenuItemClick(Sender: TObject);
     procedure USAMenuItemClick(Sender: TObject);
@@ -316,6 +409,8 @@ type
     procedure VenezuelaMenuItemClick(Sender: TObject);
     procedure VietnamMenuItemClick(Sender: TObject);
     procedure WGermanyMenuItemClick(Sender: TObject);
+    procedure YesResumeGameMenuItemClick(Sender: TObject);
+
     procedure YugoslaviaMenuItemClick(Sender: TObject);
     procedure ZaireMenuItemClick(Sender: TObject);
     procedure ZambiaMenuItemClick(Sender: TObject);
@@ -327,6 +422,7 @@ type
     PicturNum: Integer;
     OnTitleScreen: Boolean;
     OnOptionsScreen: Boolean;
+    OnBackgroundScreen: Boolean;
   public
 
   end;
@@ -354,6 +450,11 @@ begin
     Old2 := -1;
     Old3 := -1;
     PicturNum := -1;
+
+    SelectedTheme := 1;
+    SelectedMapScale := 1;
+    SetClassicTheme;
+    ReviseMenu;
 end;
 
 {Game logic functions/procedures}
@@ -645,6 +746,14 @@ BEGIN
                 NoUndoFlag:=TRUE;
                 if HitCntry <> 0 then
                     SelectCountry(HitCntry);
+                if SelectedTheme = 1 then
+                    SetClassicTheme
+                else
+                    SetDarkModeTheme;
+                if SelectedMapScale = 1 then
+                    SetOnePointFiveTimesScale
+                else
+                    SetTwoTimesScale;
                 ReviseTheMap;
                 DrawMap(PaintBox1);
             END;
@@ -671,12 +780,12 @@ PROCEDURE TMainForm.ClrHitCntry;
 BEGIN
     IF HitCntry>0 THEN
         BEGIN
-            FillCntry(HitCntry,clWhite);
+            FillCntry(HitCntry,CountryBackgroundColor);
 
             {Clear any existing country name}
-            PaintBox1.Canvas.Brush.Color := clMenuBar;
+            PaintBox1.Canvas.Brush.Color := BackgroundColor;
             PaintBox1.Canvas.Pen.Width := 1;
-            PaintBox1.Canvas.Pen.Color := clMenuBar;
+            PaintBox1.Canvas.Pen.Color := BackgroundColor;
             PaintBox1.Canvas.Rectangle(0,0,round(512 * DisplayScale), round(30 * DisplayScale));
 
             OldHit:=HitCntry;
@@ -707,19 +816,30 @@ VAR
     ts:               TTextStyle;
 begin
     ClrHitCntry;
-    FillCntry(i, clBlack);
+    FillCntry(i, CountrySelectionColor);
 
     {Draw the country name}
+    PaintBox1.Canvas.Font.Color := OutlineColor;
+    PaintBox1.Canvas.Brush.Color := BackgroundColor;
     PaintBox1.Canvas.Font.Size := round(14 * DisplayScale);
     ts := PaintBox1.Canvas.TextStyle;
     ts.Alignment := taCenter;
     ts.Layout := tlTop;
     PaintBox1.Canvas.TextRect(Rect(round(62 * DisplayScale), 0, round(450 * DisplayScale), round(25 * DisplayScale)), 0, 0, CntryNam[i], ts);
 
-    HitCntry := i;
-    ReviseTheMap;
-    DrawMap(PaintBox1);
-    ReviseMenu;
+    if (OnBackgroundScreen) then
+        begin
+            HitCntry := i;
+            DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+            DrawMap(PaintBox1);
+        end
+    else
+        begin
+            HitCntry := i;
+            ReviseTheMap;
+            DrawMap(PaintBox1);
+            ReviseMenu;
+        end;
 end;
 
 procedure TMainForm.ReviseMenu;
@@ -839,6 +959,28 @@ begin
             MakePoliciesMenuItem.Enabled := false;
             EventsMenuItem.Enabled := false;
         end;
+
+    IF (SelectedTheme = 1) then
+        begin
+            ClassicMenuItem.Checked := true;
+            DarkModeMenuItem.Checked := false;
+        end
+    else
+        begin
+            ClassicMenuItem.Checked := false;
+            DarkModeMenuItem.Checked := true;
+        end;
+
+    if (SelectedMapScale = 1) then
+        begin
+            OnePointFiveTimesMenuItem.Checked := true;
+            TwoTimesMenuItem.Checked := false;
+        end
+    else
+        begin
+            OnePointFiveTimesMenuItem.Checked := false;
+            TwoTimesMenuItem.Checked := true;
+        end;
 end;
 
 procedure TMainForm.DoSaveGamePrompt;
@@ -860,8 +1002,6 @@ begin
     if (SaveGameFilename <> '') then
         begin
             {Hide all of the title screen items}
-            TitleLabel.Visible := false;
-            TitleLabel2.Visible := false;
             NewGameButton.Visible := false;
             LoadOldGameButton.Visible := false;
 
@@ -889,8 +1029,6 @@ begin
             SaveGameFilename := OpenDialog1.Filename;
 
             {Hide all of the title screen items}
-            TitleLabel.Visible := false;
-            TitleLabel2.Visible := false;
             NewGameButton.Visible := false;
             LoadOldGameButton.Visible := false;
 
@@ -937,6 +1075,10 @@ begin
             Human:=2;
             Cmptr:=1;
         end;
+    if (PlayersRadioGroup.ItemIndex = 0) then
+       TwoPFlag := false
+    else
+       TwoPFlag := true;
 
     {Initialize the game}
     OnOptionsScreen := false;
@@ -963,6 +1105,33 @@ begin
     OldVHigh:=2;
     ReviseTheMap;
     DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.DrawTitle;
+var
+    TitleString: String;
+begin
+    TitleString := 'Balance of Power';
+
+    {Draw the title}
+    PaintBox1.Canvas.Brush.Style := bsClear;
+    PaintBox1.Canvas.Font.Size := 40;
+    PaintBox1.Canvas.Font.Style := [fsBold];
+    PaintBox1.Canvas.Font.Name := 'Courier New';
+    PaintBox1.Canvas.Font.Color := clBlack;
+    PaintBox1.Canvas.TextOut(127, 64, TitleString);
+    PaintBox1.Canvas.Font.Color := clWhite;
+    PaintBox1.Canvas.TextOut(131, 64, TitleString);
+    PaintBox1.Canvas.TextOut(133, 64, TitleString);
+    PaintBox1.Canvas.TextOut(132, 63, TitleString);
+    PaintBox1.Canvas.TextOut(132, 65, TitleString);
+    PaintBox1.Canvas.Font.Color := clGray;
+    PaintBox1.Canvas.TextOut(132, 64, TitleString);
+
+    {Reset the font}
+    PaintBox1.Canvas.Font.Name := 'default';
+    PaintBox1.Canvas.Font.Style := [];
+    PaintBox1.Canvas.Font.Color := clBlack;
 end;
 
 procedure TMainForm.OnTimer(Sender: TObject);
@@ -1013,8 +1182,8 @@ begin
             Png.Free;
          end;
 
-         TitleLabel.BringToFront;
-         TitleLabel2.BringToFront;
+         DrawTitle;
+
       end;
 end;
 
@@ -1035,14 +1204,94 @@ begin
         END;
 end;
 
+procedure TMainForm.ChangeSidesMenuItemClick(Sender: TObject);
+begin
+    ExchangP(PaintBox1);
+    TwoPActF:=TRUE;
+    ReviseMenu;
+end;
+
 procedure TMainForm.QuitGameMenuITemClick(Sender: TObject);
 begin
     GameAction(6);
 end;
 
+procedure TMainForm.SetClassicTheme;
+begin
+    BackgroundColor := clMenuBar;
+    OutlineColor := clBlack;
+    CountryBackgroundColor := clWhite;
+    CountrySelectionColor := clBlack;
+    LowValueColor := TColor(LightGrayRGB);
+    MediumValueColor := TColor(MediumGrayRGB);
+    HighValueColor := TColor(DarkGrayRGB);
+    Repaint;
+end;
+
+procedure TMainForm.SetDarkModeTheme;
+begin
+    BackgroundColor := TColor($202020);
+    OutlineColor := TColor($F8F8F8);
+    CountryBackgroundColor := clBlack;
+    CountrySelectionColor := TColor($F8F8F8);
+    LowValueColor := TColor(VDarkGrayRGB);
+    MediumValueColor := TColor(MedDkGrayRGB);
+    HighValueColor := TColor(LtMedGrayRGB);
+    Repaint;
+end;
+
+procedure TMainForm.SetEndGameButtonPosition;
+begin
+    {Set the button location}
+    EndButton.Left := Round(256 * DisplayScale) - 26;
+    EndButton.Top := Round(344 * DisplayScale) - 37;
+end;
+
+procedure TMainForm.SetOnePointFiveTimesScale;
+begin
+    DisplayScale := 1.5;
+    SetEndGameButtonPosition;
+    Repaint;
+end;
+
+procedure TMainForm.SetTwoTimesScale;
+begin
+    DisplayScale := 2.0;
+    SetEndGameButtonPosition;
+    Repaint;
+end;
+
 procedure TMainForm.ScoreMenuItemClick(Sender: TObject);
 begin
     ScoreForm.Show;
+end;
+
+procedure TMainForm.ClassicMenuItemClick(Sender: TObject);
+begin
+    SelectedTheme := 1;
+    SetClassicTheme;
+    ReviseMenu;
+end;
+
+procedure TMainForm.DarkModeMenuItemClick(Sender: TObject);
+begin
+    SelectedTheme := 2;
+    SetDarkModeTheme;
+    ReviseMenu;
+end;
+
+procedure TMainForm.OnePointFiveTimesMenuItemClick(Sender: TObject);
+begin
+    SelectedMapScale := 1;
+    SetOnePointFiveTimesScale;
+    ReviseMenu;
+end;
+
+procedure TMainForm.TwoTimesMenuItemClick(Sender: TObject);
+begin
+    SelectedMapScale := 2;
+    SetTwoTimesScale;
+    ReviseMenu;
 end;
 
 procedure TMainForm.AboutBOPMenuItemClick(Sender: TObject);
@@ -1225,72 +1474,72 @@ end;
 procedure TMainForm.MilitaryAidPolicyMenuItemClick(Sender: TObject);
 begin
     SetPolicy(1);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.AidToInsurgentsPolicyMenuITemClick(Sender: TObject);
 begin
     SetPolicy(2);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.InterveneForGovtMenuItemClick(Sender: TObject);
 begin
     SetPolicy(3);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.InterveneForRebelsMenuItemClick(Sender: TObject);
 begin
     SetPolicy(4);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.EconomicAidPolicyMenuItemClick(Sender: TObject);
 begin
     SetPolicy(5);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.DestabilizeMenuItemClick(Sender: TObject);
 begin
     SetPolicy(6);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.TreatyMenuItemClick(Sender: TObject);
 begin
     SetPolicy(7);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.DiplomaticPressurePolicyMenuItemClick(Sender: TObject);
 begin
     SetPolicy(8);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
 procedure TMainForm.TradePolicyPolicyMenuItemClick(Sender: TObject);
 begin
     SetPolicy(9);
-    MakePoliciesForm.Top := MainForm.Top + FormStartY;
-    MakePoliciesForm.Left := MainForm.Left +  FormStartX;
+    MakePoliciesForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    MakePoliciesForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     MakePoliciesForm.Show;
 end;
 
@@ -1304,11 +1553,11 @@ begin
     EventsForm.MainForm := MainForm;
     EventsForm.ScoreForm := ScoreForm;
     GiveInfo(1);
-    EventsForm.Top := MainForm.Top + FormStartY;
-    EventsForm.Left := MainForm.Left +  FormStartX;
+    EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     EventsForm.Show;
-    AdvisoryForm.Top := MainForm.Top + FormStartY;
-    AdvisoryForm.Left := MainForm.Left +  FormStartX + EventsForm.Width;
+    AdvisoryForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    AdvisoryForm.Left := MainForm.Left + Round(FormStartX * DisplayScale) + EventsForm.Width;
 end;
 
 procedure TMainForm.USSRActionsMenuItemClick(Sender: TObject);
@@ -1320,19 +1569,19 @@ begin
      EventsForm.MainForm := MainForm;
      EventsForm.ScoreForm := ScoreForm;
      GiveInfo(2);
-     EventsForm.Top := MainForm.Top + FormStartY;
-     EventsForm.Left := MainForm.Left +  FormStartX;
+     EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+     EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
      EventsForm.Show;
-     AdvisoryForm.Top := MainForm.Top + FormStartY;
-     AdvisoryForm.Left := MainForm.Left +  FormStartX + EventsForm.Width;
+     AdvisoryForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+     AdvisoryForm.Left := MainForm.Left + Round(FormStartX * DisplayScale) + EventsForm.Width;
 end;
 
 procedure TMainForm.USSROtherMenuItemClick(Sender: TObject);
 begin
     EventsForm.PaintBox1 := PaintBox1;
     GiveInfo(3);
-    EventsForm.Top := MainForm.Top + FormStartY;
-    EventsForm.Left := MainForm.Left +  FormStartX;
+    EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     EventsForm.Show;
 end;
 
@@ -1345,19 +1594,19 @@ begin
     EventsForm.MainForm := MainForm;
     EventsForm.ScoreForm := ScoreForm;
     GiveInfo(4);
-    EventsForm.Top := MainForm.Top + FormStartY;
-    EventsForm.Left := MainForm.Left +  FormStartX;
+    EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     EventsForm.Show;
-    AdvisoryForm.Top := MainForm.Top + FormStartY;
-    AdvisoryForm.Left := MainForm.Left +  FormStartX + EventsForm.Width;
+    AdvisoryForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    AdvisoryForm.Left := MainForm.Left + Round(FormStartX * DisplayScale) + EventsForm.Width;
 end;
 
 procedure TMainForm.USAOtherMenuItemClick(Sender: TObject);
 begin
     EventsForm.PaintBox1 := PaintBox1;
     GiveInfo(5);
-    EventsForm.Top := MainForm.Top + FormStartY;
-    EventsForm.Left := MainForm.Left +  FormStartX;
+    EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     EventsForm.Show;
 end;
 
@@ -1365,11 +1614,11 @@ procedure TMainForm.MinorCountryNewsMenuItemClick(Sender: TObject);
 begin
     EventsForm.PaintBox1 := PaintBox1;
     GiveInfo(6);
-    EventsForm.Top := MainForm.Top + FormStartY;
-    EventsForm.Left := MainForm.Left +  FormStartX;
+    EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);
     EventsForm.Show;
-    AdvisoryForm.Top := MainForm.Top + FormStartY;
-    AdvisoryForm.Left := MainForm.Left +  FormStartX + EventsForm.Width;
+    AdvisoryForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
+    AdvisoryForm.Left := MainForm.Left + Round(FormStartX * DisplayScale) + EventsForm.Width;
 end;
 
 {Briefing onclick handlers}
@@ -1379,9 +1628,249 @@ begin
     CloseupForm.Show;
 end;
 
+procedure TMainForm.BackgroundMenuItemClick(Sender: TObject);
+begin
+    MainForm.Menu := MainMenu2;
+    OnBackgroundScreen := true;
+    InitBackGd(PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
 procedure TMainForm.HistoryMenuItemClick(Sender: TObject);
 begin
     HistoryForm.Show;
+end;
+
+{Background onclick handlers}
+procedure TMainForm.YesResumeGameMenuItemClick(Sender: TObject);
+begin
+    MainForm.Menu := MainMenu1;
+    OnBackgroundScreen := false;
+    ReviseTheMap;
+    DrawMap(PaintBox1);
+    ReviseMenu;
+end;
+
+procedure TMainForm.GNPMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 1, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.MilitarySpendingMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 2, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.ConsumerSpendingMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 3, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.InvestmentSpendingMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 4, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.PopulationMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 5, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.MilitaryPersonnelMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(11, 6, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.PerNothingMenuItemClick(Sender: TObject);
+begin
+    Background.CurPerVal := 8;
+    DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+    DrawMap(PaintBox1);
+    PerNothingMenuItem.Checked := true;
+    PerCapitaMenuItem.Checked := false;
+    PerGNPMenuItem.Checked := false;
+end;
+
+procedure TMainForm.PerCapitaMenuItemClick(Sender: TObject);
+begin
+    Background.CurPerVal := 9;
+    DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+    DrawMap(PaintBox1);
+    PerNothingMenuItem.Checked := false;
+    PerCapitaMenuItem.Checked := true;
+    PerGNPMenuItem.Checked := false;
+end;
+
+procedure TMainForm.PerGNPMenuItemClick(Sender: TObject);
+begin
+    Background.CurPerVal := 10;
+    DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+    DrawMap(PaintBox1);
+    PerNothingMenuItem.Checked := false;
+    PerCapitaMenuItem.Checked := false;
+    PerGNPMenuItem.Checked := true;
+end;
+
+procedure TMainForm.LiteracyMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 1, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.EnergyMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 2, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.CaloriesMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 3, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.DoctorsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 4, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.InfantMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 5, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.SchoolsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 6, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.TVsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 7, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.TelephonesMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(12, 8, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.ProtestsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 1, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.DeathsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 2, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.RiotsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 3, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.ArmedAttacksMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 4, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.AssassinationsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 5, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.ExecutionsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(13, 6, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.PerNothingMenuItem2Click(Sender: TObject);
+begin
+    Background.CurVioln := 8;
+    DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+    DrawMap(PaintBox1);
+    PerNothingMenuItem2.Checked := true;
+    PerCapitaMenuItem2.Checked := false;
+end;
+
+procedure TMainForm.PerCapitaMenuItem2Click(Sender: TObject);
+begin
+    Background.CurVioln := 9;
+    DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+    DrawMap(PaintBox1);
+    PerNothingMenuItem2.Checked := false;
+    PerCapitaMenuItem2.Checked := true;
+end;
+
+procedure TMainForm.PoliticalRightsMenuITemClick(Sender: TObject);
+begin
+    DoBackGd(14, 1, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.CivilRightsMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(14, 2, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.AgricultureMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 1, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.IndustryMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 2, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.ServicesMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 3, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.TradeMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 4, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.TaxesMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 5, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.PublicEducationMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 6, PaintBox1);
+    DrawMap(PaintBox1);
+end;
+
+procedure TMainForm.PublicHealthMenuItemClick(Sender: TObject);
+begin
+    DoBackGd(15, 7, PaintBox1);
+    DrawMap(PaintBox1);
 end;
 
 {End Game onclick handler}
@@ -1808,9 +2297,12 @@ var
     Point:            TPoint;
     Polygon:          TPointArr;
     i, j:             Integer;
+    CountryClicked:   Boolean;
 begin
-    if (not GameOver) then
+    if (not (GameOver or OnTitleScreen or OnOptionsScreen)) then
         begin
+            CountryClicked := false;
+
             Point:=Mouse.CursorPos;
             Point := ScreenToClient(Point);
 
@@ -1825,9 +2317,27 @@ begin
                             if (IsPointInPolygon(xMapClick, yMapClick, Polygon)) then
                                 begin
                                     SelectCountry(i);
+                                    CountryClicked := true;
                                 end;
                         end;
                 end;
+
+            if (not CountryClicked) then
+               begin
+                  if (OnBackgroundScreen) then
+                      begin
+                          ClrHitCntry;
+                          DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+                          DrawMap(PaintBox1);
+                      end
+                  else
+                      begin
+                          ClrHitCntry;
+                          ReviseTheMap;
+                          DrawMap(PaintBox1);
+                          ReviseMenu;
+                      end;
+               end;
         end;
 end;
 
@@ -1847,6 +2357,9 @@ begin
             PlayersRadioGroup.Visible := false;
             StartButton.Visible := false;
 
+            {Draw the title text}
+            DrawTitle;
+
             {Draw the subtitle text}
             PaintBox1.Canvas.Pen.Color := clBlack;
             PaintBox1.Canvas.Brush.Color := clMenuBar;
@@ -1863,19 +2376,33 @@ begin
             MainForm.PaintBox1.Visible := false;
             TitleScreenTimer.Enabled := false;
         end
+    else if (OnBackgroundScreen) then
+        begin
+            PaintBox1.Width :=  Width;
+            PaintBox1.Height :=  Height;
+            if HitCntry <> 0 then
+                SelectCountry(HitCntry);
+            DoBackGd(Background.SelectedMenu, Background.SelectedItem, PaintBox1);
+            DrawMap(PaintBox1);
+        end
     else if (GameOver) then
         begin
-           EndGame(PaintBox1);
+            EndGame(PaintBox1);
         end
     else
         begin
-           PaintBox1.Width :=  Width;
-           PaintBox1.Height :=  Height;
-           if HitCntry <> 0 then
-               SelectCountry(HitCntry);
-           ReviseTheMap;
-           DrawMap(PaintBox1);
-           ReviseMenu;
+            Width := round(512 * DisplayScale);
+            Height := round(358 * DisplayScale);
+            PaintBox1.Width :=  Width;
+            PaintBox1.Height :=  Height;
+            PaintBox1.Canvas.Pen.Color := BackgroundColor;
+            PaintBox1.Canvas.Brush.Color := BackgroundColor;
+            PaintBox1.Canvas.Rectangle(0, 0, PaintBox1.Width, PaintBox1.Height);
+            if HitCntry <> 0 then
+                SelectCountry(HitCntry);
+            ReviseTheMap;
+            DrawMap(PaintBox1);
+            ReviseMenu;
         end;
 end;
 

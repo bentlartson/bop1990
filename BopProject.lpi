@@ -124,6 +124,7 @@
         <Filename Value="about.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AboutForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="About"/>
       </Unit>
@@ -131,6 +132,11 @@
         <Filename Value="titles.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Titles"/>
+      </Unit>
+      <Unit>
+        <Filename Value="background.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Background"/>
       </Unit>
     </Units>
   </ProjectOptions>

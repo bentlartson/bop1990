@@ -32,7 +32,7 @@ BEGIN
     with PaintBox1 do begin
         Canvas.Brush.Color := BrushColor;
         Canvas.Pen.Width := 1;
-        Canvas.Pen.Color := clBlack;
+        Canvas.Pen.Color := OutlineColor;
         Canvas.Polygon(PolygonArray);
     end;
 
@@ -80,7 +80,7 @@ BEGIN;
     GP:=GP div 2;
     MilS:=MilS div 2; {these are kluges to fix a change in units}
     CntryNam[Cntry]:=PasdName;
-    CntryCol[Cntry]:=clWhite;
+    CntryCol[Cntry]:=CountryBackgroundColor;
     Popln[Cntry]:=Pop;
     GNP[Cntry]:=GP;
     MiltSpnd[Cntry]:=MilS;
@@ -1927,12 +1927,12 @@ BEGIN
     PaintBox1.Canvas.Brush.Style := bsClear;
     PaintBox1.Canvas.Rectangle(round(2 * DisplayScale), round((243 + YOffset) * DisplayScale), round(86.5 * DisplayScale), round((344 + YOffset) * DisplayScale));
     PaintBox1.Canvas.Brush.Style := bsSolid;
-    PaintBox1.Canvas.Pen.Color := clBlack;
-    PaintBox1.Canvas.Brush.Color := clMenuBar;
+    PaintBox1.Canvas.Font.Color := OutlineColor;
+    PaintBox1.Canvas.Brush.Color := BackgroundColor;
     PaintBox1.Canvas.Font.Size := 9;
-    PaintBox1.Canvas.TextOut(round(6 * DisplayScale), round((230 + YOffset) * DisplayScale), 'Central America');
-    PaintBox1.Canvas.TextOut(round(53 * DisplayScale), round((246 + YOffset) * DisplayScale), 'Middle');
-    PaintBox1.Canvas.TextOut(round(57 * DisplayScale), round((256 + YOffset) * DisplayScale), 'East');
+    PaintBox1.Canvas.TextOut(round(6 * DisplayScale), round((236 + YOffset) * DisplayScale) - 10, 'Central America');
+    PaintBox1.Canvas.TextOut(round(53 * DisplayScale), round((253 + YOffset) * DisplayScale) - 10, 'Middle');
+    PaintBox1.Canvas.TextOut(round(57 * DisplayScale), round((263.5 + YOffset) * DisplayScale) - 10, 'East');
 END;
 
 FUNCTION InitGame(PaintBox1: TPaintBox): Integer;    {main initialization routine}
