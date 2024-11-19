@@ -34,6 +34,8 @@ implementation
 {$R *.lfm}
 
 PROCEDURE THistoryForm.DoHistory;
+CONST
+    HistoryFormDisplayScale = 1.5;
 VAR
     x,w,Turn,i,j,k,OrgX,OrgY,DotType,Scale1,Scale2,Vert,Val,Max,DType,StartX,StartY: Integer;
     y,z,Count:                    LongInt;
@@ -41,12 +43,15 @@ VAR
     TempStrng:                    Str255;
     StrHandle:                    StringHandle;
     Kludge:                       Integer;
+    xOffset:                      Integer;
 BEGIN
     HistoryPaintBox.Canvas.Brush.Style := bsSolid;
     HistoryPaintBox.Canvas.Brush.Color := clMenuBar;
     HistoryPaintBox.Canvas.Pen.Width := 1;
     HistoryPaintBox.Canvas.Pen.Color := clBlack;
-    HistoryPaintBox.Canvas.Font.Size := 8;
+    HistoryPaintBox.Canvas.Font.Size := 10;
+
+    xOffset := -15;
 
     TempStrng:=ConCat('History of ',CntryNam[HitCntry]);
     HistoryForm.Caption := TempStrng;
@@ -55,24 +60,24 @@ BEGIN
         BEGIN {draw and label axes}
             FOR j:=0 TO 2 DO IF (j=2) OR (Level>i) THEN
                 BEGIN
-                    HistoryPaintBox.Canvas.Line(40+160*i, 96*j+15, 40+160*i, 95+96*j);
-                    HistoryPaintBox.Canvas.Line(40+160*i, 95+96*j, 176+160*i, 95+96*j);
+                    HistoryPaintBox.Canvas.Line(Round((40+xOffset+160*i) * HistoryFormDisplayScale), Round((96*j+15) * HistoryFormDisplayScale), Round((40+xOffset+160*i) * HistoryFormDisplayScale), Round((95+96*j) * HistoryFormDisplayScale));
+                    HistoryPaintBox.Canvas.Line(Round((40+xOffset+160*i) * HistoryFormDisplayScale), Round((95+96*j) * HistoryFormDisplayScale), Round((176+xOffset+160*i) * HistoryFormDisplayScale), Round((95+96*j) * HistoryFormDisplayScale));
                     FOR Turn:=0 TO 8 DO
                         BEGIN
-                            HistoryPaintBox.Canvas.Line(40+160*i+17*Turn, 95+96*j, 40+160*i+17*Turn, 97+96*j);
-                            IF Turn<8 THEN HistoryPaintBox.Canvas.TextOut(42+160*i+17*Turn, 96+96*j, IntToSTr(Turn+89));
+                            HistoryPaintBox.Canvas.Line(Round((40+xOffset+160*i+17*Turn) * HistoryFormDisplayScale), Round((95+96*j) * HistoryFormDisplayScale), Round((40+xOffset+160*i+17*Turn) * HistoryFormDisplayScale), Round((97+96*j) * HistoryFormDisplayScale));
+                            IF Turn<8 THEN HistoryPaintBox.Canvas.TextOut(Round((49+xOffset+160*i+17*Turn) * HistoryFormDisplayScale) - 7, Round((96+96*j) * HistoryFormDisplayScale), IntToSTr(Turn+89));
                         END;
                     IF j>0 THEN
                         BEGIN
                             FOR Turn:=1 TO 5 DO
                                 BEGIN
-                                    HistoryPaintBox.Canvas.Line(39+160*i, 95+96*j-14*Turn, 41+160*i, 95+96*j-14*Turn);
+                                    HistoryPaintBox.Canvas.Line(Round((39+xOffset+160*i) * HistoryFormDisplayScale), Round((95+96*j-14*Turn) * HistoryFormDisplayScale), Round((41+xOffset+160*i) * HistoryFormDisplayScale), Round((95+96*j-14*Turn) * HistoryFormDisplayScale));
                                 END;
                         END;
                     w:=24*i+8*j+1;
                     FOR k:=w TO w+7 DO
                         BEGIN
-                            HistoryPaintBox.Canvas.TextOut(28+160*i, 96*j+11*(k-w+2)-8, StrHandle[k]);
+                            HistoryPaintBox.Canvas.TextOut(Round((28+xOffset+160*i) * HistoryFormDisplayScale), Round((96*j+11*(k-w+2)-8) * HistoryFormDisplayScale), StrHandle[k]);
                         END;
                 END;
         END;
@@ -110,6 +115,7 @@ BEGIN
                 22: BEGIN OrgX:=360; OrgY:=191; DotType:=5; Val:=Pressure[1,HitCntry]; END;
                 23: BEGIN OrgX:=360; OrgY:=191; DotType:=3; Val:=Pressure[2,HitCntry]; END;
             END;
+            OrgX := OrgX + xOffset;
             StartX := OrgX;
             StartY := OrgY;
             FOR Turn:=1 TO Year-1988 DO
@@ -168,15 +174,15 @@ BEGIN
                                     IF HistDum1<>0 THEN
                                         BEGIN
                                             x:=x-17;
-                                            HistoryPaintBox.Canvas.Line(StartX, StartY, x, OrgY-80);
+                                            HistoryPaintBox.Canvas.Line(Round(StartX * HistoryFormDisplayScale), Round(StartY * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round((OrgY-80) * HistoryFormDisplayScale));
                                             CASE DType OF
                                                 2: BEGIN
                                                     HistoryPaintBox.Canvas.Brush.Color := clWhite;
-                                                    HistoryPaintBox.Canvas.Rectangle(x-2, OrgY-82, x+3, OrgY-77);
+                                                    HistoryPaintBox.Canvas.Rectangle(Round((x-2) * HistoryFormDisplayScale), Round((OrgY-82) * HistoryFormDisplayScale), Round((x+3) * HistoryFormDisplayScale), Round((OrgY-77) * HistoryFormDisplayScale));
                                                    END;
                                                 4: BEGIN
                                                     HistoryPaintBox.Canvas.Brush.Color := clBlack;
-                                                    HistoryPaintBox.Canvas.Rectangle(x-2, OrgY-82, x+3, OrgY-77);
+                                                    HistoryPaintBox.Canvas.Rectangle(Round((x-2) * HistoryFormDisplayScale), Round((OrgY-82) * HistoryFormDisplayScale), Round((x+3) * HistoryFormDisplayScale), Round((OrgY-77) * HistoryFormDisplayScale));
                                                    END;
                                             END;
                                             StartX := x;
@@ -190,13 +196,13 @@ BEGIN
                                     HistDum1:=0;
                                     IF (Turn=(Year-1988))
                                         THEN BEGIN IF CoupFlag[HitCntry] THEN HistDum1:=256; END
-                                        ELSE HistDum1 := integer(CoupFlagHistory[Turn,HitCntry]);
+                                        ELSE HistDum1 := integer(CoupFlagHistory[Turn+1,HitCntry]);
                                     IF HistDum1<>0 THEN
                                         BEGIN
                                             x:=x-17;
-                                            HistoryPaintBox.Canvas.Line(StartX, StartY, x, OrgY);
-                                            HistoryPaintBox.Canvas.Line(x, OrgY-2, x, OrgY+2);
-                                            HistoryPaintBox.Canvas.Line(x-2, OrgY, x+2, OrgY);
+                                            HistoryPaintBox.Canvas.Line(Round(StartX * HistoryFormDisplayScale), Round(StartY * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round(OrgY * HistoryFormDisplayScale));
+                                            HistoryPaintBox.Canvas.Line(Round(x * HistoryFormDisplayScale), Round((OrgY-2)* HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round((OrgY+2) * HistoryFormDisplayScale));
+                                            HistoryPaintBox.Canvas.Line(Round((x-2)* HistoryFormDisplayScale), Round(OrgY * HistoryFormDisplayScale), Round((x+2)* HistoryFormDisplayScale), Round(OrgY * HistoryFormDisplayScale));
                                             StartX := x;
                                             StartY := OrgY;
                                             x:=x+17;
@@ -204,19 +210,19 @@ BEGIN
                                 END;
 
                             x:=x-17; {kludge for shift}
-                            HistoryPaintBox.Canvas.Line(StartX, StartY, x, w);
+                            HistoryPaintBox.Canvas.Line(Round(StartX * HistoryFormDisplayScale), Round(StartY * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round(w * HistoryFormDisplayScale));
                             CASE DType OF
                                 1: BEGIN
-                                    HistoryPaintBox.Canvas.Line(x, w-2, x, w+2);
-                                    HistoryPaintBox.Canvas.Line(x-2, w, x+2, w);
+                                    HistoryPaintBox.Canvas.Line(Round(x * HistoryFormDisplayScale), Round((w-2) * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round((w+2) * HistoryFormDisplayScale));
+                                    HistoryPaintBox.Canvas.Line(Round((x-2) * HistoryFormDisplayScale), Round(w * HistoryFormDisplayScale), Round((x+2) * HistoryFormDisplayScale), Round(w * HistoryFormDisplayScale));
                                    END;
                                 2: BEGIN
                                     HistoryPaintBox.Canvas.Brush.Color := clBlack;
-                                    HistoryPaintBox.Canvas.Rectangle(x-2, w-2, x+3, w+3);
+                                    HistoryPaintBox.Canvas.Rectangle(Round((x-2) * HistoryFormDisplayScale), Round((w-2) * HistoryFormDisplayScale), Round((x+3) * HistoryFormDisplayScale), Round((w+3) * HistoryFormDisplayScale));
                                    END;
                                 4: BEGIN
                                     HistoryPaintBox.Canvas.Brush.Color := clWhite;
-                                    HistoryPaintBox.Canvas.Rectangle(x-2, w-2, x+3, w+3);
+                                    HistoryPaintBox.Canvas.Rectangle(Round((x-2) * HistoryFormDisplayScale), Round((w-2) * HistoryFormDisplayScale), Round((x+3) * HistoryFormDisplayScale), Round((w+3) * HistoryFormDisplayScale));
                                    END;
                             END;
                             StartX := x+2;
@@ -232,7 +238,7 @@ BEGIN
                                         4: HistoryPaintBox.Canvas.Brush.Color := clWhite;
                                         5: HistoryPaintBox.Canvas.Brush.Color := TColor(LightGrayRGB);
                                     END;
-                                    HistoryPaintBox.Canvas.Rectangle(x-4*(DotType-1), w, x-4*(DotType-2)+1, OrgY+1);
+                                    HistoryPaintBox.Canvas.Rectangle(Round((x-4*(DotType-1)) * HistoryFormDisplayScale), Round(w * HistoryFormDisplayScale), Round((x-4*(DotType-2)+1) * HistoryFormDisplayScale), Round((OrgY+1) * HistoryFormDisplayScale));
                                 END;
                         END;
                 END; {of TURN-loop}
@@ -262,10 +268,10 @@ BEGIN
                         END;
                     IF HistDum1<>0 THEN
                         BEGIN
-                            x:=21+160*(i-1)+17*Turn;
-                            HistoryPaintBox.Canvas.Line(x, 95, x, 15);
+                            x:=21+160*(i-1)+17*Turn+xOffset;
+                            HistoryPaintBox.Canvas.Line(Round(x * HistoryFormDisplayScale), Round(95 * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round(15 * HistoryFormDisplayScale));
                             x:=x+4;
-                            HistoryPaintBox.Canvas.Line(x, 95, x, 15);
+                            HistoryPaintBox.Canvas.Line(Round(x * HistoryFormDisplayScale), Round(95 * HistoryFormDisplayScale), Round(x * HistoryFormDisplayScale), Round(15 * HistoryFormDisplayScale));
                         END;
                 END;
         END;
@@ -273,6 +279,8 @@ end;
 
 procedure THistoryForm.HistoryPaintBoxPaint(Sender: TObject);
 begin
+    HistoryPaintBox.Width :=  Width;
+    HistoryPaintBox.Height :=  Height;
     DoHistory;
 end;
 

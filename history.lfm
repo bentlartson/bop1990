@@ -1,13 +1,13 @@
 object HistoryForm: THistoryForm
   Left = 593
-  Height = 371
+  Height = 503
   Top = 168
-  Width = 630
+  Width = 743
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'History'
-  ClientHeight = 371
-  ClientWidth = 630
+  ClientHeight = 503
+  ClientWidth = 743
   Position = poOwnerFormCenter
   LCLVersion = '2.2.6.0'
   object WhoLabel: TLabel
@@ -36,9 +36,9 @@ object HistoryForm: THistoryForm
   end
   object HistoryPaintBox: TPaintBox
     Left = 0
-    Height = 344
+    Height = 472
     Top = 32
-    Width = 632
+    Width = 744
     Color = clWindow
     ParentColor = False
     OnPaint = HistoryPaintBoxPaint

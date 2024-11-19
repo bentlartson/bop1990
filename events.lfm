@@ -9,6 +9,7 @@ object EventsForm: TEventsForm
   ClientHeight = 361
   ClientWidth = 342
   OnClose = EventsFormClose
+  OnCloseQuery = EventsFormCloseQuery
   OnCreate = FormCreate
   LCLVersion = '2.2.6.0'
   object PreviousButton: TButton

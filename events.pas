@@ -28,6 +28,7 @@ type
     USSRInterestLabel: TLabel;
     procedure BackDownButtonClick(Sender: TObject);
     procedure EventsFormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure EventsFormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure NextButtonClick(Sender: TObject);
     procedure WrapUpComputerReacting;
@@ -81,6 +82,7 @@ end;
 
 procedure TEventsForm.WrapUpComputerReacting;
 begin
+    BackDownButton.Enabled := false;
     EventsForm.Close;
     AdvisoryForm.Close;
 
@@ -195,11 +197,12 @@ end;
 
 procedure TEventsForm.EventsFormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-    if (BackDownButton.Visible) then
-        begin
-            BackDownButtonClick(Sender);
-        end;
     if (AdvisoryForm.Visible) then AdvisoryForm.Close();
+end;
+
+procedure TEventsForm.EventsFormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+   CanClose := (CrisisLevel <= 1) or (not(ComputerReacting) and (not(BackDownButton.Visible and BackDownButton.Enabled)));
 end;
 
 PROCEDURE TEventsForm.MakeFirstHead;
@@ -652,12 +655,15 @@ BEGIN
                                             IF Human=1 THEN x:=790 ELSE x:=890;
                                             EventsForm.WhichHead := i;
                                             EventsForm.TransNews(i,FALSE,TRUE);
+
                                             HeadLine(x,1,0,Subject[i],TheObject[i],OldNVal[i],CrisisVal[i],EventsForm.HeadlineLabel2,EventsForm.QuestionButton);
                                             CullFlag:=FALSE;
                                             CrisFlag:=TRUE;
                                             InitCrisis(EventsForm.WhichHead, EventsForm.HeadlineLabel2, EventsForm.PreviousButton, EventsForm.NextButton, EventsForm.QuestionButton, PaintBox1);
                                             QuitFlag:=Crisis(EventsForm, i, EventsForm.HeadlineLabel2, EventsForm.QuestionButton, EventsForm.BackDownButton, EventsForm.PreviousButton, EventsForm.NextButton, EventsForm.PrestigeLabel,
                                             EventsForm.USAInterestLabel, EventsForm.USSRInterestLabel, 1);
+                                            EventsForm.NewsLabel1.Visible := false;
+                                            EventsForm.NewsLabel2.Visible := false;
                                             EventsForm.BackDownButton.Visible := true;
                                             EventsForm.Top := MainForm.Top + Round(FormStartY * DisplayScale) + FormTopOffset;
                                             EventsForm.Left := MainForm.Left + Round(FormStartX * DisplayScale);

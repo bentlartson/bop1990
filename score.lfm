@@ -1,13 +1,13 @@
 object ScoreForm: TScoreForm
   Left = 860
-  Height = 437
+  Height = 464
   Top = 292
-  Width = 292
+  Width = 300
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Score'
-  ClientHeight = 437
-  ClientWidth = 292
+  ClientHeight = 464
+  ClientWidth = 300
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   LCLVersion = '2.2.6.0'
@@ -15,7 +15,7 @@ object ScoreForm: TScoreForm
     Left = 0
     Height = 15
     Top = 32
-    Width = 292
+    Width = 300
     Alignment = taCenter
     Anchors = [akTop, akLeft, akRight]
     Caption = 'LevelLabel'
@@ -27,16 +27,16 @@ object ScoreForm: TScoreForm
     Left = 0
     Height = 15
     Top = 56
-    Width = 292
+    Width = 300
     Alignment = taCenter
     Anchors = [akTop, akLeft, akRight]
-    Caption = 'SubHeaderLabel'
+    Caption = 'SubHeaderLabelCaption'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object ScoresLabel: TLabel
-    Left = 76
+    Left = 80
     Height = 15
     Top = 72
     Width = 66
@@ -127,9 +127,9 @@ object ScoreForm: TScoreForm
   end
   object HistoryPaintBox: TPaintBox
     Left = 0
-    Height = 264
+    Height = 288
     Top = 176
-    Width = 294
+    Width = 300
     OnPaint = HistoryPaintBoxPaint
   end
 end

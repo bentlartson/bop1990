@@ -1,7 +1,7 @@
 object AboutForm: TAboutForm
-  Left = 743
+  Left = 623
   Height = 255
-  Top = 274
+  Top = 261
   Width = 234
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
@@ -73,7 +73,7 @@ object AboutForm: TAboutForm
     Width = 234
     Alignment = taCenter
     Anchors = [akTop, akLeft, akRight]
-    Caption = 'Version 0.1'
+    Caption = 'Version 0.2'
     ParentColor = False
     ParentFont = False
   end

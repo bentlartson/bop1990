@@ -3,6 +3,7 @@ object AdvisoryForm: TAdvisoryForm
   Height = 361
   Top = 337
   Width = 308
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Advisory'
   ClientHeight = 361

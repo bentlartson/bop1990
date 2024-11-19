@@ -1249,6 +1249,7 @@ end;
 
 procedure TMainForm.SetOnePointFiveTimesScale;
 begin
+    if (DisplayScale = 2.0) then Left := Left + 128;
     DisplayScale := 1.5;
     SetEndGameButtonPosition;
     Repaint;
@@ -1256,6 +1257,7 @@ end;
 
 procedure TMainForm.SetTwoTimesScale;
 begin
+    if (DisplayScale = 1.5) then Left := Left - 128;
     DisplayScale := 2.0;
     SetEndGameButtonPosition;
     Repaint;

@@ -934,6 +934,8 @@ BEGIN
 END;
 
 PROCEDURE GrafScor(PaintBox1: TPaintBox);
+CONST
+    ScoreFormDisplayScale = 1.5;
 VAR
     i,j,t,x,y,z,StartX,StartY:    Integer;
     TempStrng:                    Str255;
@@ -942,23 +944,23 @@ BEGIN
     PaintBox1.Canvas.Brush.Color := clMenuBar;
     PaintBox1.Canvas.Pen.Width := 1;
     PaintBox1.Canvas.Pen.Color := clBlack;
-    PaintBox1.Canvas.Font.Size := 9;
+    PaintBox1.Canvas.Font.Size := 10;
 
     x:=40;
     y:=160;
-    PaintBox1.Canvas.Line(x, y-140, x, y);
-    PaintBox1.Canvas.Line(x, y, x+136, y);
+    PaintBox1.Canvas.Line(Round(x * ScoreFormDisplayScale), Round((y-140) * ScoreFormDisplayScale), Round(x * ScoreFormDisplayScale), Round(y * ScoreFormDisplayScale));
+    PaintBox1.Canvas.Line(Round(x * ScoreFormDisplayScale), Round(y * ScoreFormDisplayScale), Round((x+136) * ScoreFormDisplayScale), Round(y * ScoreFormDisplayScale));
     FOR i:=0 TO 8 DO
         BEGIN
-            PaintBox1.Canvas.Line(x+17*i, y-1, x+17*i, y+1);
-            IF i<8 THEN PaintBox1.Canvas.TextOut(x+17*i, y+2, IntToSTr(i+89));
+            PaintBox1.Canvas.Line(Round((x+17*i) * ScoreFormDisplayScale), Round((y-1) * ScoreFormDisplayScale), Round((x+17*i) * ScoreFormDisplayScale), Round((y+1) * ScoreFormDisplayScale));
+            IF i<8 THEN PaintBox1.Canvas.TextOut(Round((x+17*i) * ScoreFormDisplayScale), Round((y+2) * ScoreFormDisplayScale), IntToSTr(i+89));
         END;
-    PaintBox1.Canvas.Line(x-1, y-70, x+1, y-70);
-    PaintBox1.Canvas.TextOut(x-12, y-77, '0');
-    PaintBox1.Canvas.Line(x-1, y-140, x+1, y-140);
-    PaintBox1.Canvas.TextOut(x-32, y-147, '+700');
-    PaintBox1.Canvas.Line(x-1, y, x+1, y);
-    PaintBox1.Canvas.TextOut(x-32, y-7, '-700');
+    PaintBox1.Canvas.Line(Round((x-1) * ScoreFormDisplayScale), Round((y-70) * ScoreFormDisplayScale), Round((x+1) * ScoreFormDisplayScale), Round((y-70) * ScoreFormDisplayScale));
+    PaintBox1.Canvas.TextOut(Round((x-12) * ScoreFormDisplayScale), Round((y-77) * ScoreFormDisplayScale), '0');
+    PaintBox1.Canvas.Line(Round((x-1) * ScoreFormDisplayScale), Round((y-140) * ScoreFormDisplayScale), Round((x+1) * ScoreFormDisplayScale), Round((y-140) * ScoreFormDisplayScale));
+    PaintBox1.Canvas.TextOut(Round((x-32) * ScoreFormDisplayScale), Round((y-147) * ScoreFormDisplayScale), '+700');
+    PaintBox1.Canvas.Line(Round((x-1) * ScoreFormDisplayScale), Round(y * ScoreFormDisplayScale), Round((x+1) * ScoreFormDisplayScale), Round(y * ScoreFormDisplayScale));
+    PaintBox1.Canvas.TextOut(Round((x-32) * ScoreFormDisplayScale), Round((y-7) * ScoreFormDisplayScale), '-700');
     FOR j:=1 TO 2 DO
         BEGIN
             StartX := x;
@@ -968,10 +970,10 @@ BEGIN
                     IF j=1 THEN t:=USAScor[i] ELSE t:=USSRScor[i];
                     z:=(-t div 10)-70;
                     IF z>0 THEN z:=0; IF z<-140 THEN z:=-140;
-                    PaintBox1.Canvas.Line(StartX, StartY, x+17*(i-1), y+z);
+                    PaintBox1.Canvas.Line(Round(StartX * ScoreFormDisplayScale), Round(StartY * ScoreFormDisplayScale), Round((x+17*(i-1)) * ScoreFormDisplayScale), Round((y+z) * ScoreFormDisplayScale));
                     IF j=1 THEN BEGIN PaintBox1.Canvas.Brush.Color := clWhite; END
                     ELSE PaintBox1.Canvas.Brush.Color := clBlack;
-                    PaintBox1.Canvas.Rectangle(x+17*(i-1)-2, y+z-2, x+17*(i-1)+3, y+z+3);
+                    PaintBox1.Canvas.Rectangle(Round((x+17*(i-1)-2) * ScoreFormDisplayScale), Round((y+z-2) * ScoreFormDisplayScale), Round((x+17*(i-1)+3) * ScoreFormDisplayScale), Round((y+z+3) * ScoreFormDisplayScale));
                     StartX := x+17*(i-1)+2;
                     StartY := y+z;
                 END;
